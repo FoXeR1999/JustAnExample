@@ -30,3 +30,9 @@ let congratulations = ("Congratulations, \(fullName)! You beat your previous dai
 
 print(congratulations)
 //: [Previous](@previous)  |  page 3 of 5  |  [Next: Exercise - String Equality and Comparison](@next)
+func divide(firstNumber: Double, secondNumber: Double) {
+    let result = firstNumber / secondNumber
+    print("The result is \(result).")
+}
+
+divide(firstNumber: 39, secondNumber: 4)
