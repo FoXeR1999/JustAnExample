@@ -14,12 +14,16 @@ introduction(name: "Justin", home: "American Fork", age: 17)
 func addition(_ firstNumber: Double, plus secondNumber: Double) {
     print(firstNumber + secondNumber)
 }
+
 // Ask how to make the addition func not say anything instead of "firstNumber".
+
 // Also ask how to have more than one word, such as "func multiplication(_ firstNumber: Double, multiplied by secondNumber: Double)"
 
 addition(8.5, plus: 2)
 
 addition(5.2, plus: 3.1415926535)
+
+addition(5.4, plus: 2)
 /*:
  Write a function called `multiply` that takes two `Double` arguments. The function should multiply the two arguments and print the result. The first argument should not require a label, and the second argument should have an external label, "by", that differs from the internal label. Call the function and observe the printout.
  */
