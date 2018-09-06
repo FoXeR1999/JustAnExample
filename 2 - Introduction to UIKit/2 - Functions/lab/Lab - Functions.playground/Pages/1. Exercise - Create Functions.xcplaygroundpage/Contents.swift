@@ -15,10 +15,23 @@ introduceMyself(firstName: "Justin", hobbies: "Ping-pong")
  */
 import Foundation
 
-let randomNum = arc4random_uniform(UInt32(5))
-
 func magicEightBall() {
+    
+    let randomNum = arc4random_uniform(UInt32(5))
+    
+    if randomNum == 0 {
+        print("You will be wealthy")
+    } else if randomNum == 1 {
+        print("You've met a terrible fate, haven't you?")
+    } else if randomNum == 2 {
+        print("Today is going to be average")
+    } else if randomNum == 3 {
+        print("That special someone loves to see the twinkle in your eyes")
+    } else if randomNum == 4 {
+        print("Give it another try")
+    }
     
 }
 
+magicEightBall()
 //: page 1 of 6  |  [Next: App Exercise - A Functioning App](@next)

@@ -9,7 +9,47 @@
  
  Call the function a number of times, passing in different values of `steps` and `goal`. Observe the printouts and make sure what is printed to the console is what you would expect for the parameters passsed in.
  */
+var steps = 0
 
+let goal = 10000
+
+func progressUpdate() {
+    
+    if steps <= (goal * (1 / 10)) || steps == 0 {
+        print("You're off to a good start.")
+    } else if (goal * (1 / 2)) >= steps && steps >= (goal * (1 / 10)) {
+        print("You're almost halfway there!")
+    } else if steps <= (goal * (9 / 10)) && steps >= (goal * (1 / 2)) {
+        print("You're over halfway there!")
+    } else if steps > goal {
+        print("You beat your goal!")
+    }
+    
+}
+
+progressUpdate()
+
+var stepsE = 0.0
+
+let goalE = 10000.0
+
+func progressUpdateE() {
+    
+    if stepsE <= (goalE * (1 / 10)) {
+        print("You're off to a good start.")
+    } else if (goalE * (1 / 2)) >= stepsE && stepsE >= (goalE * (1 / 10)) {
+        print("You're almost halfway there!")
+    } else if stepsE <= (goalE * (9 / 10)) && stepsE >= (goalE * (1 / 2)) {
+        print("You're over halfway there!")
+    } else if stepsE > goalE {
+        print("You beat your goal!")
+    } else if stepsE == 0 {
+        print("Take a step")
+    }
+    
+}
+
+progressUpdateE()
 
 /*:
  Your fitness tracking app is going to help runners stay on pace to reach their goals. Write a function called pacing that takes four `Double` parameters called `currentDistance`, `totalDistance`, `currentTime`, and `goalTime`. Your function should calculate whether or not the user is on pace to hit or beat `goalTime`. If yes, print "Keep it up!", otherwise print "You've got to push it just a bit harder!"
