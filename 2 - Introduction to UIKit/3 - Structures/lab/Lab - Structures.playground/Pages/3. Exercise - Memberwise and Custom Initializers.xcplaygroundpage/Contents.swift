@@ -39,12 +39,12 @@ struct Height {
     var heightInCentimeters: Double
     
     init(heightInInches: Double) {
-        self.heightInCentimeters = (heightInInches / 2.54)
+        self.heightInCentimeters = (heightInInches * 2.54)
         self.heightInInches = heightInInches
     }
     
     init(heightInCentimeters: Double) {
-        heightInInches = (heightInCentimeters * 2.54)
+        self.heightInInches = (heightInCentimeters * 2.54)
         self.heightInCentimeters = heightInCentimeters
     }
 }
@@ -66,3 +66,56 @@ var myHeight = Height(heightInInches: 74)
 print(myHeight)
 
 //: [Previous](@previous)  |  page 3 of 10  |  [Next: App Exercise - Users and Distance](@next)
+
+//struct Friend {
+//    var name: String
+//    var age: Int
+//}
+
+//var petey = Friend(name: "Petey", age: 28)
+//var andrea = petey
+
+//print(petey.name == andrea.name)
+
+//andrea.name = "Andrea"
+
+//print(andrea)
+
+//print(petey.name == andrea.name)
+
+
+
+class Friend {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class BestFriend: Friend {
+    let nickname: String
+    
+    init(name: String, nickname: String) {
+        self.nickname = nickname
+        super.init(name: name)
+    }
+}
+
+class Acquaintance: Friend {
+    let howIKnowThem: String
+    
+    init(name: String, howIKnowThem: String) {
+        self.howIKnowThem = howIKnowThem
+        super.init(name: name)
+    }
+}
+
+class WorstEnemy: Friend {
+    let planOfRevenge: String
+    
+    init(name: String, planOfRevenge: String) {
+        self.planOfRevenge = planOfRevenge
+        super.init(name: name)
+    }
+}
