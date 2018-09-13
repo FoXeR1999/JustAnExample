@@ -33,3 +33,11 @@ func multiply(_ firstNumber: Double, times secondNumber: Double) {
 
 multiply(3.4, times: 6)
 //: [Previous](@previous)  |  page 3 of 6  |  [Next: App Exercise - Progress Updates](@next)
+func student(name: String) -> String {
+    return name
+}
+student(name: "Justin")
+student(name: "Bryson")
+
+
+

@@ -24,27 +24,23 @@ print(someArea.area)
  Create an instance of `Height` and then change one of its properties. Print out the other property to ensure that it was adjusted accordingly.
  */
 struct Height {
-    var heightInInches: Double = 0.0{
-        willSet {
-            print("About to set inches")
-        }
+    var heightInInches: Double = 0.0 {
         didSet {
-            if heightInCentimeters == (heightInInches * 2.54) {
-                print("Height in centimeters equals height in inches time 2.54")
-            } else if heightInCentimeters != (heightInInches * 2.54) {
-                print("Height in centimeters does not equal height in inches times 2.54")
-                // Ask how to change it back in the lab tomorrow
+            if oldValue == (heightInCentimeters / 2.54) {
+                print("Height in centimeters = height in inches / 2.54")
+            } else if oldValue != (heightInCentimeters / 2.54) {
+                print("Height in centimeters does not equal height in inches / 2.54")
             }
+        
             
         }
     }
     var heightInCentimeters: Double = 0.0 {
-        willSet {
-            print("About to set centimeters")
-        }
         didSet {
-            if heightInInches != (heightInCentimeters / 2.54) {
-                heightInInches = (heightInInches / 2.54)
+            if oldValue == (heightInInches * 2.54) {
+                print("Height in centimeters equals height in inches time 2.54")
+            } else if oldValue != (heightInInches * 2.54) {
+                print("Height in centimeters does not equal height in inches times 2.54")
             }
         }
     }
@@ -67,4 +63,8 @@ print(myHeight.heightInCentimeters)
 myHeight.heightInCentimeters = 2.54
 
 print(myHeight.heightInCentimeters)
+
+myHeight = Height(heightInInches: 34)
+
+print(myHeight)
 //: [Previous](@previous)  |  page 7 of 10  |  [Next: App Exercise - Mile Times and Congratulations](@next)

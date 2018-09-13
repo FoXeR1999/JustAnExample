@@ -44,12 +44,13 @@ struct Height {
     }
     
     init(heightInCentimeters: Double) {
-        self.heightInInches = (heightInCentimeters * 2.54)
+        self.heightInInches = (heightInCentimeters / 2.54)
         self.heightInCentimeters = heightInCentimeters
     }
 }
 
-
+var justinHeight = Height(heightInCentimeters: 188)
+print(justinHeight)
 
 /*:
  Now create a variable instance of `Height` called `someonesHeight`. Use the initializer for inches to set the height to 65. Print out the property for height in centimeters and verify that it is equal to 165.1.
@@ -119,3 +120,18 @@ class WorstEnemy: Friend {
         super.init(name: name)
     }
 }
+
+
+
+
+let cup1 = Cup()
+
+let cup2 = cup1
+
+cup1.label = "something"
+
+cup2.label = "something else"
+
+print(cup1.label)
+
+"something else"
