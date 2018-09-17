@@ -48,9 +48,9 @@ class ShieldedShip: Fighter {
     override func wasHit() {
         if shieldStrength > 0 {
             shieldStrength -= 5
-        } else {
+        } else if shieldStrength == 0 {
             // Ask how to put it to the superclass
-            wasHit()
+            super.wasHit()
         }
     }
 }
@@ -77,6 +77,7 @@ defender.wasHit()
 defender.wasHit()
 defender.wasHit()
 defender.wasHit()
+print(defender.shieldStrength, defender.health)
 defender.wasHit()
 defender.wasHit()
 print(defender.shieldStrength, defender.health)
