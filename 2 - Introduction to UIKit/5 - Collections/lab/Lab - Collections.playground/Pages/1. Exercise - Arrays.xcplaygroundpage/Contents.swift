@@ -26,17 +26,17 @@ print(registrationList)
 /*:
  Someone had a conflict and decided to transfer her registration to someone else. Use array subscripting to change the sixth element to `Rebecca`. Print the contents of the collection.
  */
-registrationList.insert("Frick Ball Z", at: 6)
+registrationList.insert("Ponyboy", at: 6)
+print(registrationList)
 
-//print(registrationList)
+
 //registrationList.remove(at: 6)
-//print(registrationList)
 //registrationList.insert("Rebecca", at: 6)
 //print(registrationList)
 
 // **The above code fits into the code below**
 
-registrationList. = "Rebecca"
+registrationList[6] = "Rebecca"
 print(registrationList)
 /*:
  Call `removeLast()` on `registrationList`. If done correctly, this should remove `Rebecca` from the collection. Store the result of `removeLast()` into a new constant `deletedItem`, then print `deletedItem`.
