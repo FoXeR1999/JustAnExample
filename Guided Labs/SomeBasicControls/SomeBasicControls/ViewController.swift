@@ -36,10 +36,37 @@ class ViewController: UIViewController {
     
     @IBAction func changeHue(_ sender: Any) {
         var sliderValue = toggledChangeHue.value
-        print(toggledChangeHue.value)
+        // print(toggledChangeHue.value)
         if (toggledChangeHue != nil) {
             self.view.backgroundColor = UIColor(hue: CGFloat(sliderValue), saturation: 0.5, brightness: 1, alpha: 1.0)
         }
         
     }
+    
+    // MARK: This is the button
+    
+    @IBOutlet weak var toggledResetScreen: UIButton!
+    
+    @IBAction func resetScreen(_ sender: Any) {
+        self.view.backgroundColor = UIColor.white
+    }
+    
+    // MARK: This is the UITextfield
+    
+    @IBOutlet weak var toggledTextField: UITextField!
+    
+    @IBAction func textField(_ sender: Any) {
+        print("I'm Done")
+        
+        if (toggledTextField.isEditing) {
+            labelChange == toggledTextField
+        }
+    }
+    
+    
+    // MARK: This is the Label
+    
+    @IBOutlet weak var labelChange: UILabel!
+    
+    
 }
