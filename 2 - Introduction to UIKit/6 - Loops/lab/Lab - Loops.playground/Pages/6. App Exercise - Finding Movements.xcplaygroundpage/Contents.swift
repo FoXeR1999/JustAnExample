@@ -12,8 +12,13 @@ let lowHR = 110
 let highHR = 125
 var movementHeartRates: [String: Int] = ["Walking": 85, "Running": 120, "Swimming": 130, "Cycling": 128, "Skiing": 114, "Climbing": 129]
 
-for keys in movementHeartRates.keys {
-    
+for activitiesAndHR in movementHeartRates {
+    print(activitiesAndHR)
+    if activitiesAndHR.value > 110 && activitiesAndHR.value < 125 {
+        print("You are hitting your target heart rate.")
+    } else if activitiesAndHR.value < 110 || activitiesAndHR.value > 125 {
+        print("You could go \(movementHeartRates.keys)")
+    }
 }
 
 /*:
