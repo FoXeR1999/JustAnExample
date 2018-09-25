@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(hue: 0.5556, saturation: 0, brightness: 0.9, alpha: 1.0) /* #d6d6d6 */
+        self.view.backgroundColor = UIColor(hue: 0.5556, saturation: 0, brightness: 0.8, alpha: 1.0) /* #d6d6d6 */
         nextGame.isHidden = true
         newRound()
     }
