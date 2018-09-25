@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextGame.isEnabled = false
+        nextGame.isHidden = true
         newRound()
     }
     
