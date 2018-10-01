@@ -40,11 +40,17 @@ let caloriesTextField = UITextField()
 foodTextField.text = "Banana"
 caloriesTextField.text = "23"
 
-
+func logFood() -> Food? {
+    guard let unwrappedFoodTextField = foodTextField.text, let unwrappedCaloriesTextField = (caloriesTextField.text), let intUnwrappedCaloriesTextField = Int(unwrappedCaloriesTextField) else {return nil}
+    
+    return Food(name: unwrappedFoodTextField, calories: intUnwrappedCaloriesTextField)
+}
 /*:
  Call the function you made above and capture the return value. Unwrap the `Food` object with standard optional binding and print a statement about the food using each of its properties. Go back and change the text in `caloriesTextField` to a string that cannot be converted into a number. What happens in that case?
  */
-
+if let myFood = logFood() {
+    print("You ate \(myFood.name) and it had \(myFood.calories) calories in it.")
+}
 
 /*:
  
