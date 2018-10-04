@@ -8,11 +8,23 @@
 struct User {
     var name: String
     var stepsToday: Int
+    
+    init?(initName: String?, initStepsToday: Int?) {
+        guard let unwrappedName = initName else {
+            return nil
+        }
+        guard let unwrappedStepsToday = initStepsToday else {
+            return nil
+        }
+        name = unwrappedName
+        stepsToday = unwrappedStepsToday
+        
+    }
 }
 
-let stepMaster = User(name: "StepMaster", stepsToday: 8394)
-let activeSitter = User(name: "ActiveSitter", stepsToday: 9132)
-let monsterWalker = User(name: "MonsterWalker", stepsToday: 7193)
+let stepMaster = User(initName: "StepMaster", initStepsToday: 8394)
+let activeSitter = User(initName: "ActiveSitter", initStepsToday: 9132)
+let monsterWalker = User(initName: "MonsterWalker", initStepsToday: 7193)
 
 let competitors = [stepMaster, activeSitter, monsterWalker]
 /*:
@@ -24,8 +36,8 @@ func getWinner(competitors: [User]) -> User? {
     var topCompetitor: User?
     
     for competitor in competitors {
-        if let topCompetitor = topCompetitor {
-            if competitor.stepsToday > topCompetitor.stepsToday {
+        if let unwrappedTopCompetitor = topCompetitor {
+            if competitor.stepsToday > unwrappedTopCompetitor.stepsToday {
                 topCompetitor = competitor
             }
         } else {
@@ -34,6 +46,8 @@ func getWinner(competitors: [User]) -> User? {
     }
     return topCompetitor
 }
+
+getWinner(competitors: competitors as! [User])
 /*:
  Write a memberwise initializer inside the `User` struct above that uses variable shadowing for naming the parameters of the initializer.
  */
@@ -42,8 +56,9 @@ func getWinner(competitors: [User]) -> User? {
 /*:
  Now write a failable initializer inside the `User` struct above that takes parameters `name` and `stepsToday` as an optional `String` and `Int`, respectively. The initializer should return `nil` if either of the parameters are `nil`. Use variable shadowing when unwrapping the two parameters.
  */
+let goku = User(initName: "goku", initStepsToday: 9001)
+print(goku)
 
-  
 /*:
  
  _Copyright © 2017 Apple Inc._
