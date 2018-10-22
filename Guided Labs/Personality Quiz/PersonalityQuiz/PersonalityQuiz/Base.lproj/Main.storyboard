@@ -31,24 +31,32 @@
                                             </imageView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3tZ-Oq-h76">
+                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-tq-cqF">
                                         <rect key="frame" x="0.0" y="215.5" width="375" height="216"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Zelda Character Are You Quiz" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL2-Eb-Jbt">
-                                                <rect key="frame" x="12" y="0.0" width="351" height="108"/>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Zelda Character Are You?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL2-Eb-Jbt">
+                                                <rect key="frame" x="25.5" y="53.5" width="324.5" height="29"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofD-Jx-hyB">
-                                                <rect key="frame" x="137" y="108" width="101" height="108"/>
+                                                <rect key="frame" x="108.5" y="127" width="158" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="Begin the Quiz"/>
                                                 <connections>
-                                                    <segue destination="gqG-2j-1nn" kind="show" id="3Mg-QR-Szz"/>
+                                                    <segue destination="50C-XQ-1p0" kind="show" id="3Mg-QR-Szz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="fL2-Eb-Jbt" firstAttribute="centerY" secondItem="4bs-tq-cqF" secondAttribute="centerY" constant="-40" id="8wX-R5-FhK"/>
+                                            <constraint firstItem="fL2-Eb-Jbt" firstAttribute="centerX" secondItem="4bs-tq-cqF" secondAttribute="centerX" id="PWB-sC-oT2"/>
+                                            <constraint firstItem="ofD-Jx-hyB" firstAttribute="centerX" secondItem="4bs-tq-cqF" secondAttribute="centerX" id="azh-u6-N2b"/>
+                                            <constraint firstItem="ofD-Jx-hyB" firstAttribute="centerY" secondItem="4bs-tq-cqF" secondAttribute="centerY" constant="40" id="lrA-ni-dbn"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K4D-2k-0Sz">
                                         <rect key="frame" x="0.0" y="431.5" width="375" height="215.5"/>
                                         <subviews>
@@ -87,25 +95,82 @@
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="adS-Ho-F3q"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qKL-Gb-9oT"/>
+                    <connections>
+                        <segue destination="X0P-PH-e6Z" kind="show" identifier="ResultsSegue" id="cEa-7Y-0Iu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0i-TM-8cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="134"/>
+            <point key="canvasLocation" x="1617" y="134"/>
         </scene>
-        <!--Results View Controller-->
+        <!--Results-->
         <scene sceneID="ZWO-XR-tf9">
             <objects>
                 <viewController id="X0P-PH-e6Z" customClass="ResultsViewController" customModule="PersonalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Tb-fw-z1M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-uX-ZHj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MF8-sc-aPs">
+                                        <rect key="frame" x="158" y="336.5" width="59.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are _!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiV-gk-lyb">
+                                        <rect key="frame" x="87" y="271.5" width="201.5" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qiV-gk-lyb" firstAttribute="centerX" secondItem="4Nu-uX-ZHj" secondAttribute="centerX" id="Y2W-Yw-OMu"/>
+                                    <constraint firstItem="qiV-gk-lyb" firstAttribute="centerY" secondItem="4Nu-uX-ZHj" secondAttribute="centerY" id="j9S-oE-r2m"/>
+                                    <constraint firstItem="MF8-sc-aPs" firstAttribute="centerX" secondItem="4Nu-uX-ZHj" secondAttribute="centerX" id="qvn-0L-h1w"/>
+                                    <constraint firstItem="MF8-sc-aPs" firstAttribute="centerY" secondItem="4Nu-uX-ZHj" secondAttribute="centerY" constant="50" id="roF-qy-GaM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Nu-uX-ZHj" firstAttribute="bottom" secondItem="Iu1-TG-dHd" secondAttribute="bottom" id="4Ck-8V-ek3"/>
+                            <constraint firstItem="4Nu-uX-ZHj" firstAttribute="top" secondItem="Iu1-TG-dHd" secondAttribute="top" id="YDn-Kr-XLK"/>
+                            <constraint firstItem="4Nu-uX-ZHj" firstAttribute="leading" secondItem="Iu1-TG-dHd" secondAttribute="leading" id="rMb-oa-s1G"/>
+                            <constraint firstItem="4Nu-uX-ZHj" firstAttribute="trailing" secondItem="Iu1-TG-dHd" secondAttribute="trailing" id="tC3-Jv-pci"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Iu1-TG-dHd"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Results" id="SNM-6k-LnD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="78o-oz-ZQc"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2J-Ja-Dbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="134"/>
+            <point key="canvasLocation" x="2376.8000000000002" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Sag-5v-ghK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="50C-XQ-1p0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bVM-iF-WYs">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gqG-2j-1nn" kind="relationship" relationship="rootViewController" id="uC8-co-e4S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VHL-uV-kpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.60000000000002" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
