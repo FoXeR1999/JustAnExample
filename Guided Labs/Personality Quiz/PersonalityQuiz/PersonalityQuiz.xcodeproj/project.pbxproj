@@ -16,6 +16,7 @@
 		387805B821778A2D009A3C9C /* PersonalityQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387805B721778A2D009A3C9C /* PersonalityQuizUITests.swift */; };
 		387805C621778E9C009A3C9C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387805C521778E9C009A3C9C /* QuestionViewController.swift */; };
 		387805C821778EA9009A3C9C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387805C721778EA9009A3C9C /* ResultsViewController.swift */; };
+		38DC672D217F6D2800C5F35A /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DC672C217F6D2800C5F35A /* QuestionData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		387805B921778A2D009A3C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		387805C521778E9C009A3C9C /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		387805C721778EA9009A3C9C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		38DC672C217F6D2800C5F35A /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				3878059921778A2C009A3C9C /* ViewController.swift */,
 				387805C521778E9C009A3C9C /* QuestionViewController.swift */,
 				387805C721778EA9009A3C9C /* ResultsViewController.swift */,
+				38DC672C217F6D2800C5F35A /* QuestionData.swift */,
 				3878059B21778A2C009A3C9C /* Main.storyboard */,
 				3878059E21778A2D009A3C9C /* Assets.xcassets */,
 				387805A021778A2D009A3C9C /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				3878059A21778A2C009A3C9C /* ViewController.swift in Sources */,
 				3878059821778A2C009A3C9C /* AppDelegate.swift in Sources */,
+				38DC672D217F6D2800C5F35A /* QuestionData.swift in Sources */,
 				387805C621778E9C009A3C9C /* QuestionViewController.swift in Sources */,
 				387805C821778EA9009A3C9C /* ResultsViewController.swift in Sources */,
 			);

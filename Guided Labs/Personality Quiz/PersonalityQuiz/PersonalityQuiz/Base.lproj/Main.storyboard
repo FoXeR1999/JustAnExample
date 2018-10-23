@@ -34,8 +34,8 @@
                                     <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-tq-cqF">
                                         <rect key="frame" x="0.0" y="215.5" width="375" height="216"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Zelda Character Are You?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL2-Eb-Jbt">
-                                                <rect key="frame" x="25.5" y="53.5" width="324.5" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Zelda Breath of the Wild Character Are You?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL2-Eb-Jbt">
+                                                <rect key="frame" x="10" y="50" width="355" height="57.5"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -51,19 +51,21 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="fL2-Eb-Jbt" firstAttribute="centerY" secondItem="4bs-tq-cqF" secondAttribute="centerY" constant="-40" id="8wX-R5-FhK"/>
-                                            <constraint firstItem="fL2-Eb-Jbt" firstAttribute="centerX" secondItem="4bs-tq-cqF" secondAttribute="centerX" id="PWB-sC-oT2"/>
+                                            <constraint firstItem="fL2-Eb-Jbt" firstAttribute="top" secondItem="4bs-tq-cqF" secondAttribute="top" constant="50" id="6X5-Ke-t0F"/>
+                                            <constraint firstItem="fL2-Eb-Jbt" firstAttribute="leading" secondItem="4bs-tq-cqF" secondAttribute="leading" constant="10" id="ESY-bJ-WKZ"/>
+                                            <constraint firstItem="ofD-Jx-hyB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fL2-Eb-Jbt" secondAttribute="bottom" constant="15" id="YUL-YK-bg1"/>
                                             <constraint firstItem="ofD-Jx-hyB" firstAttribute="centerX" secondItem="4bs-tq-cqF" secondAttribute="centerX" id="azh-u6-N2b"/>
+                                            <constraint firstAttribute="trailing" secondItem="fL2-Eb-Jbt" secondAttribute="trailing" constant="10" id="hQa-cP-AAr"/>
                                             <constraint firstItem="ofD-Jx-hyB" firstAttribute="centerY" secondItem="4bs-tq-cqF" secondAttribute="centerY" constant="40" id="lrA-ni-dbn"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K4D-2k-0Sz">
                                         <rect key="frame" x="0.0" y="431.5" width="375" height="215.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkullKid" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-KQ-IhL">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Revali" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-KQ-IhL">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="215.5"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ganondorf" translatesAutoresizingMaskIntoConstraints="NO" id="r5q-ht-auw">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mipha" translatesAutoresizingMaskIntoConstraints="NO" id="r5q-ht-auw">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="215.5"/>
                                             </imageView>
                                         </subviews>
@@ -348,9 +350,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ganondorf" width="256" height="256"/>
         <image name="Link" width="600" height="756"/>
-        <image name="SkullKid" width="663" height="1033"/>
+        <image name="Mipha" width="401" height="466"/>
+        <image name="Revali" width="479" height="449"/>
         <image name="Zelda" width="491" height="557"/>
     </resources>
 </document>
