@@ -263,16 +263,24 @@
                             <constraint firstAttribute="bottom" secondItem="77M-GS-FD5" secondAttribute="bottom" constant="20" id="wfX-U1-zqw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="adS-Ho-F3q"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="8Da-fi-vQG"/>
-                                <exclude reference="77M-GS-FD5"/>
-                                <exclude reference="LtE-QM-7Z6"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="qKL-Gb-9oT"/>
                     <connections>
+                        <outlet property="multiLabel1" destination="FhH-UK-jJg" id="dTF-cQ-HaU"/>
+                        <outlet property="multiLabel2" destination="nHP-AD-aWz" id="389-sR-ele"/>
+                        <outlet property="multiLabel3" destination="zud-mJ-WTA" id="doM-aC-UTH"/>
+                        <outlet property="multiLabel4" destination="baG-Ee-fYy" id="9Gu-uM-8eZ"/>
+                        <outlet property="multipleStackView" destination="77M-GS-FD5" id="oWo-5Y-iTm"/>
+                        <outlet property="questionLabel" destination="qeh-hv-CkB" id="pRC-51-yWj"/>
+                        <outlet property="questionProgressView" destination="g82-c8-aSM" id="YYU-Zh-9Hz"/>
+                        <outlet property="rangedLabel1" destination="8do-s8-w55" id="c6R-iY-rkf"/>
+                        <outlet property="rangedLabel2" destination="lDk-8u-Pbq" id="hAx-Xg-fX6"/>
+                        <outlet property="rangedStackView" destination="LtE-QM-7Z6" id="jFA-F0-Ml0"/>
+                        <outlet property="singleButton1" destination="2J0-Hr-ByB" id="NDu-MD-OJq"/>
+                        <outlet property="singleButton2" destination="6Kx-Zk-cpu" id="rdq-CD-a3g"/>
+                        <outlet property="singleButton3" destination="Xp4-kZ-9yK" id="HXy-FE-BUQ"/>
+                        <outlet property="singleButton4" destination="ZHR-vq-7jf" id="fdT-au-ZLh"/>
+                        <outlet property="singleStackView" destination="8Da-fi-vQG" id="Y6R-xb-3aJ"/>
                         <segue destination="X0P-PH-e6Z" kind="show" identifier="ResultsSegue" id="cEa-7Y-0Iu"/>
                     </connections>
                 </viewController>
@@ -350,9 +358,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Link" width="600" height="756"/>
-        <image name="Mipha" width="401" height="466"/>
-        <image name="Revali" width="479" height="449"/>
-        <image name="Zelda" width="491" height="557"/>
+        <image name="Link" width="1200" height="1513"/>
+        <image name="Mipha" width="803" height="933"/>
+        <image name="Revali" width="958" height="898"/>
+        <image name="Zelda" width="737.25" height="835.5"/>
     </resources>
 </document>
