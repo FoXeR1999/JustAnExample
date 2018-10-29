@@ -100,6 +100,7 @@ class QuestionViewController: UIViewController {
     // Mark: viewDidLoad
     
     override func viewDidLoad() {
+        questionIndex = 0
         super.viewDidLoad()
         updateUI()
         // Do any additional setup after loading the view.
@@ -163,6 +164,13 @@ class QuestionViewController: UIViewController {
             updateUI()
         } else {
             performSegue(withIdentifier: "ResultsSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultsSegue" {
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.responses = answersChosen
         }
     }
     /*
