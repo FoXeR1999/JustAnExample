@@ -12,6 +12,7 @@ import UIKit
 //SkullKid = "Skull Kid", Twinrova = "Twinrova", Ghirahim = "Ghirahim", Zant = "Zant", Midna = "Midna", Fi = "Fi", Groose = "Groose", HappyMaskSalesman = "Happy Mask Salesman", Linebeck = "Linebeck", Navi = "Navi", Tingle = "Tingle, "Agitha = "Agitha", GuruGuru = "Guru-Guru", Malon = "Malon", Postman = "Postman", KingDorephan = "King Dorephan", Muzu = "Muzu", Riju = "Riju", Yunobo = "Yunobo", Bolson = "Bolson",  GreatDekuTree = "Great Deku Tree", Pikango = "Pikango", Magda = "Magda", Purah = "Purah", Paya = "Paya", Robbie = "Robbie", Kass = "Kass", Hestu = "Hestu", Teba = "Teba",
 
 var questionIndex = 0
+var answersChosen: [Answer] = []
 
 struct Answer {
     var text: String
