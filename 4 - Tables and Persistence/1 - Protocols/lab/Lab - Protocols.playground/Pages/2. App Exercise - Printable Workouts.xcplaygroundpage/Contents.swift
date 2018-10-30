@@ -5,7 +5,7 @@
  
  The `Workout` objects you have created so far in app exercises don't show a whole lot of useful information when printed to the console. They also aren't very easy to compare or sort. Throughout these exercises, you'll make the `Workout` class below adopt certain protocols that will solve these issues.
  */
-class Workout: CustomStringConvertible {
+class Workout: CustomStringConvertible, Equatable, Comparable, Codable {
     var distance: Double
     var time: Double
     var identifier: Int
@@ -16,7 +16,21 @@ class Workout: CustomStringConvertible {
         self.identifier = identifier
     }
     
-    static func 
+    var description: String {
+        return "Distance \(distance), time: \(time), identifier \(identifier)"
+    }
+    
+    static func == (lhs: Workout, rhs: Workout) -> Bool {
+        if lhs.distance == rhs.distance && lhs.time == rhs.time && lhs.identifier == rhs.identifier {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func < (lhs: Workout, rhs: Workout) -> Bool {
+        return lhs.time < rhs.time
+    }
 }
 
 /*:
@@ -34,12 +48,16 @@ class Workout: CustomStringConvertible {
  
  Create three more `Workout` objects, giving them identifiers of 3, 4, and 5, respectively. Then create an array called `workouts` of type `[Workout]` and assign it an array literal with all five `Workout` objects you have created. Place these objects in the array out of order. Then create another array called `sortedWorkouts` of type `[Workout]` that is the `workouts` array sorted by identifier. 
  */
-
+let grinder = Workout(distance: 11, time: 85, identifier: 1)
 
 /*:
  Make `Workout` adopt the `Codable` protocol so you can easily encode `Workout` objects as data that can be stored between app launches. Use a `JSONEncoder` to encode one of your `Workout` instances. Then use the encoded data to initialize a `String`, and print it to the console.
  */
 import Foundation
 
-
+let jsonEncoder = JSONEncoder()
+if let jsonData = try? jsonEncoder.encode(grinder),
+    let jsonString = String(data: jsonData, encoding: .utf8) {
+    print(jsonString)
+}
 //: [Previous](@previous)  |  page 2 of 5  |  [Next: Exercise - Create a Protocol](@next)
