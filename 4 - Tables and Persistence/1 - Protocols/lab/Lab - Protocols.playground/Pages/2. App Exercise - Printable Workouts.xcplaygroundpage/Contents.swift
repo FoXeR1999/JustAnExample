@@ -5,7 +5,7 @@
  
  The `Workout` objects you have created so far in app exercises don't show a whole lot of useful information when printed to the console. They also aren't very easy to compare or sort. Throughout these exercises, you'll make the `Workout` class below adopt certain protocols that will solve these issues.
  */
-class Workout {
+class Workout: CustomStringConvertible {
     var distance: Double
     var time: Double
     var identifier: Int
@@ -15,6 +15,8 @@ class Workout {
         self.time = time
         self.identifier = identifier
     }
+    
+    static func 
 }
 
 /*:
