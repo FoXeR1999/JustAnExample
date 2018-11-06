@@ -22,9 +22,9 @@ class AthleteFormViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         
         guard let name = nameTextField.text,
-        let age = ageTextField.text,
-        let league = leagueTextField.text,
-        let team = teamTextField.text else { return }
+            let age = ageTextField.text,
+            let league = leagueTextField.text,
+            let team = teamTextField.text else { return }
         
         athlete = Athlete(name: name, age: age, league: league, team: team)
     }
@@ -45,14 +45,17 @@ class AthleteFormViewController: UIViewController {
         }
         
     }
+    
+    
+    
+    // MARK: - Navigation
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if let source = segue.source as? AthleteTableViewController,
+//            let athlete = athlete {
+//            source.athletes.append(athlete)
+//        }
+//
+//    }
 }
-
-/*
-  MARK: - Navigation
- 
-  In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-  Get the new view controller using segue.destination.
-  Pass the selected object to the new view controller.
- }
- */
