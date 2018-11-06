@@ -67,4 +67,7 @@ let propertyListDecoder = PropertyListDecoder()
 
 if let retrievedData = try? Data(contentsOf: fileURL) {
 let decodedFeast = try? propertyListDecoder.decode(ThanksgivingFeast.self, from: retrievedData)
+    if let unwrappedDecodedFeast = decodedFeast {
+        print(unwrappedDecodedFeast)
+    }
 }
