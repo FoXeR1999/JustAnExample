@@ -32,17 +32,30 @@ class AthleteTableViewController: UITableViewController {
         return cell
     }
     
-    
-    
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue) {
-            if _ {
-                
+    @IBAction func UnwindToAthleteTable(segue: UIStoryboardSegue) {
+        
+        guard segue.identifier == "SaveButton" else { return }
+        
+        let sourceviewController = segue.source as! AthleteFormViewController
+        
+        if let athlete = sourceviewController.athlete {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                athletes[selectedIndexPath.row] = athlete
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                let newIndexPath = IndexPath(row: athletes.count, section: 0)
+                athletes.append(athlete)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
     }
     
-}
+    // MARK: - Navigation
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue) {
+//            if _ {
+//
+//            }
+//        }
+    }

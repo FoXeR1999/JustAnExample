@@ -130,6 +130,7 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveButton:" destination="8K9-2q-IXD" eventType="touchUpInside" id="XyG-0M-eS3"/>
+                                    <segue destination="wFc-3q-vwq" kind="unwind" identifier="SaveButton" unwindAction="UnwindToAthleteTableWithSegue:" id="2BR-Hi-Kac"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -151,7 +152,6 @@
                         <outlet property="leagueTextField" destination="Aap-hH-FNd" id="CVf-uP-Bl7"/>
                         <outlet property="nameTextField" destination="U3J-R0-1jS" id="WV2-Wc-aLC"/>
                         <outlet property="teamTextField" destination="rKE-v9-NBr" id="WIv-iW-rBQ"/>
-                        <segue destination="wFc-3q-vwq" kind="unwind" identifier="UnwindToAthleteTable" unwindAction="prepareForUnwindWithSegue:" id="HPS-Df-mzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MrL-ji-oiy" sceneMemberID="firstResponder"/>
