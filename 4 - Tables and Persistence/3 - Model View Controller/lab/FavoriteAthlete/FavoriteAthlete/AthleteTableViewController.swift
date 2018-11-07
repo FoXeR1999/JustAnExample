@@ -38,8 +38,10 @@ class AthleteTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow, segue.identifier == PropertyKeys.editAthleteSegue {
-            AthleteFormViewController.athlete = athletes[indexPath.row]
+        super.prepare(for: segue) {
+            if _ {
+                
+            }
         }
     }
     
