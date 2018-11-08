@@ -45,6 +45,14 @@ class AddEditEmojiTableViewController: UITableViewController {
         saveButton.isEnabled = !symbolText.isEmpty && !nameText.isEmpty && !descriptionText.isEmpty && !usageText.isEmpty
     }
     
+    static func saveToFile(emojis: [Emoji]) {
+    
+    }
+    
+    static func loadFromFile() -> [Emoji] {
+        return emojis
+    }
+    
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
