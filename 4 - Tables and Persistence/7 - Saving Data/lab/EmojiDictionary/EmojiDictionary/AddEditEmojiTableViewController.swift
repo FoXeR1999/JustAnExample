@@ -11,7 +11,12 @@ class AddEditEmojiTableViewController: UITableViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var emoji: Emoji?
-
+    
+    // let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    // let archiveURL = documentsDirectory.appendingPathComponent("").appendingPathExtension("plist")
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,19 +50,16 @@ class AddEditEmojiTableViewController: UITableViewController {
         saveButton.isEnabled = !symbolText.isEmpty && !nameText.isEmpty && !descriptionText.isEmpty && !usageText.isEmpty
     }
     
-    static func saveToFile(emojis: [Emoji]) {
     
-    }
     
-    static func loadFromFile() -> [Emoji] {
-        return emojis
-    }
-    
+
+//
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
-    
+//
     @IBAction func returnPressed(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
+//
 }
