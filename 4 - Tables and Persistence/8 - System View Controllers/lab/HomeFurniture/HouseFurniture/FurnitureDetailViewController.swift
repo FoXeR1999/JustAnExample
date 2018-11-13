@@ -31,6 +31,8 @@ class FurnitureDetailViewController: UIViewController {
     }
     
     @IBAction func choosePhotoButtonTapped(_ sender: Any) {
+        UIAlertController(title: "title", message: "message", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
         
     }
 
