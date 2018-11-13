@@ -9,6 +9,10 @@ import UIKit
 
 class AthleteFormViewController: UIViewController {
     
+    struct PropertyKeys {
+        static let unwind = "SaveButton"
+    }
+    
     var athlete: Athlete?
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -27,6 +31,7 @@ class AthleteFormViewController: UIViewController {
             let team = teamTextField.text else { return }
         
         athlete = Athlete(name: name, age: age, league: league, team: team)
+        performSegue(withIdentifier: PropertyKeys.unwind, sender: self)
     }
     
     override func viewDidLoad() {
@@ -37,12 +42,12 @@ class AthleteFormViewController: UIViewController {
     }
     
     func updateView() {
-        if let unwrappedAthlete = athlete {
-            nameTextField.text = unwrappedAthlete.name
-            ageTextField.text = unwrappedAthlete.age
-            leagueTextField.text = unwrappedAthlete.league
-            teamTextField.text = unwrappedAthlete.team
-        }
+        guard let athlete = athlete else { return }
+        
+        nameTextField.text = athlete.name
+        ageTextField.text = athlete.age
+        leagueTextField.text = athlete.league
+        teamTextField.text = athlete.team
         
     }
     
@@ -50,12 +55,12 @@ class AthleteFormViewController: UIViewController {
     
     // MARK: - Navigation
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if let source = segue.source as? AthleteTableViewController,
-//            let athlete = athlete {
-//            source.athletes.append(athlete)
-//        }
-//
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //
+    //        if let source = segue.source as? AthleteTableViewController,
+    //            let athlete = athlete {
+    //            source.athletes.append(athlete)
+    //        }
+    //
+    //    }
 }

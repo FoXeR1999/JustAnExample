@@ -4,6 +4,7 @@ class AthleteTableViewController: UITableViewController {
     
     struct PropertyKeys {
         static let athleteCell = "AthleteCell"
+        static let addAthleteSegue = "AddAthlete"
         static let editAthleteSegue = "EditAthlete"
     }
     
@@ -34,28 +35,24 @@ class AthleteTableViewController: UITableViewController {
     
     @IBAction func UnwindToAthleteTable(segue: UIStoryboardSegue) {
         
-        guard segue.identifier == "SaveButton" else { return }
+        guard let source = segue.source as? AthleteFormViewController,
+            let athlete = source.athlete else { return }
         
-        let sourceviewController = segue.source as! AthleteFormViewController
-        
-        if let athlete = sourceviewController.athlete {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                athletes[selectedIndexPath.row] = athlete
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            } else {
-                let newIndexPath = IndexPath(row: athletes.count, section: 0)
-                athletes.append(athlete)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
+        if let indexPath = tableView.indexPathForSelectedRow {
+            athletes.remove(at: indexPath.row)
+            athletes.insert(athlete, at: indexPath.row)
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else {
+            athletes.append(athlete)
         }
     }
     
-    // MARK: - Navigation
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue) {
-//            if _ {
-//
-//            }
-//        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let athleteFormViewController = segue.destination as? AthleteFormViewController else {return}
+        
+        if let indexPath = tableView.indexPathForSelectedRow,
+            segue.identifier == PropertyKeys.editAthleteSegue {
+            athleteFormViewController.athlete = athletes[indexPath.row]
+        }
     }
+}
