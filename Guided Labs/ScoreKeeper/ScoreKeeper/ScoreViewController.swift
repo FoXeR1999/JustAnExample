@@ -10,13 +10,24 @@ import UIKit
 
 class ScoreViewController: UIViewController {
 
+    var playerName: String?
+    
+    @IBOutlet weak var playerTextField: UITextField!
+    
+    @IBAction func playerSaveButton(_ sender: Any) {
+        
+        playerName = playerTextField.text
+        
+        performSegue(withIdentifier: "unwindToScoresTableView", sender: self)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

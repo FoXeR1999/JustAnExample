@@ -10,18 +10,23 @@ import UIKit
 
 class ScoresTableViewCell: UITableViewCell {
 
+    var player: Player? {
+        didSet {
+            updateCell()
+        }
+    }
     /////////////////////////////////////////////////////////////
     // MARK: Actions
     /////////////////////////////////////////////////////////////
     
     @IBAction func scoresStepperValueChanged(_ sender: UIStepper) {
+        
         scoreLabel.text = Int(sender.value).description
     }
     
     @IBOutlet weak var scoreLabel: UILabel!
     
-    @IBOutlet weak var playerLabel: UIView!
-    
+    @IBOutlet weak var playerLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -35,4 +40,10 @@ class ScoresTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func updateCell() {
+        if let unwrappedPlayer = player {
+            playerLabel.text = unwrappedPlayer.name
+        }
+    }
+    
 }

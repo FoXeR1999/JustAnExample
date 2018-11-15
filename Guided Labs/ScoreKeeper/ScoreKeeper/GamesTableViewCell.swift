@@ -24,4 +24,9 @@ class GamesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    /*
+    func updateCell(with gameName: Game) {
+        gameTitle.text = gameName.name
+    }
+    */
 }
