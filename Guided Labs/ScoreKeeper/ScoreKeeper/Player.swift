@@ -9,5 +9,7 @@
 import Foundation
 
 struct Player {
-    let name: String
+    let name: String?
 }
+
+// let exampleP = Player(name: "Justin")

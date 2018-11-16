@@ -12,6 +12,10 @@ class GamesTableViewController: UITableViewController {
     
     var games = [Game]()
     
+    @IBAction func unwindFromPlayersTableView(segue: UIStoryboardSegue) {
+        
+    }
+    
     @IBAction func unwindToGameTableView(segue: UIStoryboardSegue) {
         
         let gameViewControllerName = (segue.source as? GameViewController)?.name
@@ -26,18 +30,11 @@ class GamesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return games.count
     }
     
@@ -91,15 +88,27 @@ class GamesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let unwrappedScoresTableViewController = segue.destination as? ScoresTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        // gets the specific game they chose
+        let game = games[indexPath.row]
+        
+        if segue.identifier == "scoreTableViewController" {
+            unwrappedScoresTableViewController.game = game
+    
+        }
+        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
     ///////////////////////////////////
     //        MARK: Functions        //

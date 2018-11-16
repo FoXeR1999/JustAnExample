@@ -9,5 +9,13 @@
 import Foundation
 
 struct Game {
-    let name: String
+    let name: String?
+    var players: [Player] = []
+    
+    init(name: String) {
+        self.name = name
+        self.players = []
+    }
 }
+
+// let example = Game(name: "Minecraft", players: [Player(name: "Justin")])

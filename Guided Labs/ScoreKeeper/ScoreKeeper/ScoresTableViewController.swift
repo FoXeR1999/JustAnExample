@@ -10,47 +10,43 @@ import UIKit
 
 class ScoresTableViewController: UITableViewController {
     
-    var players = [Player]()
+    var game: Game?
     
     ////////////////////
     // MARK: Methods //
     //////////////////
     
+    // Connect this to the game nav bar item in the scores Table View
+    @IBAction func unwindToGamesTableViewController(_ sender: Any) {
+        performSegue(withIdentifier: "unwindFromPlayersTableViewController", sender: self)
+    }
+    
     @IBAction func unwindToScoresTableView(segue: UIStoryboardSegue) {
         
         let scoresViewControllerName = (segue.source as? ScoreViewController)?.playerName
         
-        let player = Player(name: scoresViewControllerName ?? "")
+        let player = Player(name: scoresViewControllerName)
         
-        players.append(player)
+        game?.players.append(player)
         
+
         tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    
-    /*
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-    */
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return players.count
+        
+        if let unwrappedGame = game {
+            return unwrappedGame.players.count
+        } else {
+            return 0
+        }
+
     }
     
 
@@ -61,9 +57,12 @@ class ScoresTableViewController: UITableViewController {
 
         // Configure the cell...
 
-        let playerName = players[indexPath.row].name
-        
-        cell.playerLabel?.text = playerName
+        if let unwrappedGame = game {
+            
+            let playerName = unwrappedGame.players[indexPath.row].name
+            
+            cell.playerLabel?.text = playerName
+        }
         
         cell.updateCell()
         
