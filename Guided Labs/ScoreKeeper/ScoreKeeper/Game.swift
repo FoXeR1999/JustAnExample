@@ -18,3 +18,4 @@ struct Game: Codable {
     }
 }
 
+// SAVE THE GAME INFO

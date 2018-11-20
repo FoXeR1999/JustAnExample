@@ -31,6 +31,13 @@ class ScoresTableViewController: UITableViewController {
         
         game?.players.append(player)
         
+        let propertyListEncoder = PropertyListEncoder()
+        
+        let archiveURL = documentsDirectory.appendingPathComponent("games_test").appendingPathExtension("plist")
+        
+        let encodedGames = try? propertyListEncoder.encode(game)
+        
+        try? encodedGames?.write(to: archiveURL, options: .noFileProtection)
         
         tableView.reloadData()
     }
@@ -41,15 +48,17 @@ class ScoresTableViewController: UITableViewController {
         
     }
     
+    /*
     override func viewWillAppear(_ animated: Bool) {
         
         let propertyListDecoder = PropertyListDecoder()
         
         let archiveURL = documentsDirectory.appendingPathComponent("games_test").appendingPathExtension("plist")
         
-        if let retrievedGamesData = try? Data(contentsOf: archiveURL), let decodedGames = try? propertyListDecoder.decode(Array<Game>.self, from: retrievedGamesData) {
+        if let retrievedGamesData = try? Data(contentsOf: archiveURL), let decodedGames = try? propertyListDecoder.decode([Game].self, from: retrievedGamesData) {
             print(decodedGames)
         }
+ 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,9 +70,10 @@ class ScoresTableViewController: UITableViewController {
         let encodedGames = try? propertyListEncoder.encode(game)
         
         try? encodedGames?.write(to: archiveURL, options: .noFileProtection)
-        
+ 
     }
-    
+ */
+ 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let unwrappedGame = game {
@@ -93,7 +103,6 @@ class ScoresTableViewController: UITableViewController {
         
         return cell
     }
-    
     
     /*
      // Override to support conditional editing of the table view.

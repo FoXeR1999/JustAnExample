@@ -12,6 +12,8 @@ class GamesTableViewController: UITableViewController {
     
     var games = [Game]()
     
+    let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
     // Have this do what the unwindToGamesTableViewController thing
     @IBAction func unwindFromPlayersTableView(segue: UIStoryboardSegue) {
         
@@ -30,7 +32,7 @@ class GamesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+   
     }
     
     // MARK: - Table view data source
@@ -53,6 +55,29 @@ class GamesTableViewController: UITableViewController {
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let propertyListDecoder = PropertyListDecoder()
+        
+        let archiveURL = documentsDirectory.appendingPathComponent("games_test").appendingPathExtension("plist")
+        
+        if let retrievedGamesData = try? Data(contentsOf: archiveURL), let decodedGames = try? propertyListDecoder.decode([Game].self, from: retrievedGamesData) {
+            print(decodedGames)
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        let propertyListEncoder = PropertyListEncoder()
+        
+        let archiveURL = documentsDirectory.appendingPathComponent("games_test").appendingPathExtension("plist")
+        
+        let encodedGames = try? propertyListEncoder.encode(games)
+        
+        try? encodedGames?.write(to: archiveURL, options: .noFileProtection)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
