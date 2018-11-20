@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Game {
+struct Game: Codable {
     let name: String?
     var players: [Player] = []
     
@@ -18,4 +18,3 @@ struct Game {
     }
 }
 
-// let example = Game(name: "Minecraft", players: [Player(name: "Justin")])

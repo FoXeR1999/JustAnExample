@@ -12,6 +12,8 @@ class ScoresTableViewController: UITableViewController {
     
     var game: Game?
     
+    let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
     ////////////////////
     // MARK: Methods //
     //////////////////
@@ -29,14 +31,37 @@ class ScoresTableViewController: UITableViewController {
         
         game?.players.append(player)
         
-
+        
         tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let propertyListDecoder = PropertyListDecoder()
+        
+        let archiveURL = documentsDirectory.appendingPathComponent("games_test").appendingPathExtension("plist")
+        
+        if let retrievedGamesData = try? Data(contentsOf: archiveURL), let decodedGames = try? propertyListDecoder.decode(Array<Game>.self, from: retrievedGamesData) {
+            print(decodedGames)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        let propertyListEncoder = PropertyListEncoder()
+        
+        let archiveURL = documentsDirectory.appendingPathComponent("games_test").appendingPathExtension("plist")
+        
+        let encodedGames = try? propertyListEncoder.encode(game)
+        
+        try? encodedGames?.write(to: archiveURL, options: .noFileProtection)
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,17 +71,17 @@ class ScoresTableViewController: UITableViewController {
         } else {
             return 0
         }
-
+        
     }
     
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "playerScoresCell", for: indexPath) as? ScoresTableViewCell else { return UITableViewCell() }
-
+        
         // Configure the cell...
-
+        
         if let unwrappedGame = game {
             
             let playerName = unwrappedGame.players[indexPath.row].name
@@ -69,50 +94,54 @@ class ScoresTableViewController: UITableViewController {
         return cell
     }
     
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    ////////////////////
+    // MARK: Saving  //
+    //////////////////
+    
 }
