@@ -153,7 +153,7 @@
                                                         <!--2018-11-24 19:31:06 +0000-->
                                                     </date>
                                                     <connections>
-                                                        <action selector="birthdayDatePicker:" destination="sKr-bE-vCi" eventType="valueChanged" id="RBH-LM-QfG"/>
+                                                        <action selector="birthdayDatePickerValueChanged:" destination="sKr-bE-vCi" eventType="valueChanged" id="dsM-xR-Fge"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
@@ -223,7 +223,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="birthdayDatePicker" destination="2rm-bj-fSb" id="4DG-gk-gIw"/>
+                        <outlet property="birthdayDatePicker" destination="2rm-bj-fSb" id="IvM-EP-UUL"/>
                         <outlet property="dobLabel" destination="sb2-1b-Gac" id="94j-1d-oBq"/>
                         <outlet property="employeeTypeLabel" destination="iHP-Fp-n5s" id="VQw-h7-IY8"/>
                         <outlet property="nameTextField" destination="G1W-fA-Vfi" id="OxN-ZJ-COx"/>

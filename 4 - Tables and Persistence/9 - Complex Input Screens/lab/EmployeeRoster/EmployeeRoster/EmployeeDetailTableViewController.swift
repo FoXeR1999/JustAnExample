@@ -3,13 +3,6 @@ import UIKit
 
 class EmployeeDetailTableViewController: UITableViewController, EmployeeTypeDelegate {
     
-    func didSelect(employeeType: EmployeeType) {
-        self.employeeType = employeeType
-        employeeTypeLabel.text = employeeType.description()
-        employeeTypeLabel.textColor = .black
-    }
-    
-    
     struct PropertyKeys {
         static let unwindToListIndentifier = "UnwindToListSegue"
     }
@@ -58,12 +51,6 @@ class EmployeeDetailTableViewController: UITableViewController, EmployeeTypeDele
         }
     }
     
-    func formatDate (date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter.string(from: date)
-    }
-    
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let name = nameTextField.text,
             let employeeType = employeeType {
@@ -99,6 +86,22 @@ class EmployeeDetailTableViewController: UITableViewController, EmployeeTypeDele
         isEditingBirthday = !isEditingBirthday
         dobLabel.textColor = .black
         dobLabel.text = formatDate(date: birthdayDatePicker.date)
+    }
+    
+    ////////////////////////
+    // MARK: misc. Funcs //
+    //////////////////////
+    
+    func didSelect(employeeType: EmployeeType) {
+        self.employeeType = employeeType
+        employeeTypeLabel.text = employeeType.description()
+        employeeTypeLabel.textColor = .black
+    }
+    
+    func formatDate (date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
     }
     
     // MARK: - Navigation
