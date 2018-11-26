@@ -13,7 +13,7 @@ class EmployeeListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,22 +22,22 @@ class EmployeeListTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employees.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.employeeCellIdentifier, for: indexPath)
-
+        
         let employee = employees[indexPath.row]
         cell.textLabel?.text = employee.name
         cell.detailTextLabel?.text = employee.employeeType.description()
-
+        
         return cell
     }
-
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -45,10 +45,10 @@ class EmployeeListTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let employeeDetailTableViewController = segue.destination as? EmployeeDetailTableViewController else {return}
@@ -68,5 +68,4 @@ class EmployeeListTableViewController: UITableViewController {
             employees.append(employee)
         }
     }
-
 }
