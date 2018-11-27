@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" id="Yls-5K-eNg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" id="Yls-5K-eNg" customClass="MainTableTableViewCell" customModule="GuidedLabList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yls-5K-eNg" id="Drx-0G-5XV">
@@ -57,6 +57,12 @@
                                         <constraint firstItem="N5h-zh-DbX" firstAttribute="leading" secondItem="Drx-0G-5XV" secondAttribute="leading" id="pLU-J6-1pC"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="assignmentLabel" destination="h8F-hv-eCP" id="u7e-cc-UcM"/>
+                                    <outlet property="classLabel" destination="68w-hC-fmi" id="5Va-cF-LqY"/>
+                                    <outlet property="dueDate" destination="MM6-sf-7we" id="XwB-pS-fUf"/>
+                                    <segue destination="gUi-Ox-8bD" kind="show" identifier="editHomeworkSegue" id="pfz-Ic-sEf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,18 +70,20 @@
                             <outlet property="delegate" destination="G7o-6x-7Ae" id="t8n-dp-r76"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Homework" id="jVL-u1-hS5">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="2TQ-cc-BlU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="5KW-v7-ctM">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="G7o-6x-7Ae" id="8j1-hM-Q1q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2TQ-cc-BlU">
                             <connections>
                                 <segue destination="gUi-Ox-8bD" kind="show" identifier="addHomeworkSegue" id="lN8-2z-eJA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="5KW-v7-ctM">
-                            <connections>
-                                <segue destination="gUi-Ox-8bD" kind="show" identifier="editHomeworkSegue" id="TIC-00-gkS"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poM-s2-p1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,6 +201,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TIC-00-gkS"/>
+        <segue reference="pfz-Ic-sEf"/>
     </inferredMetricsTieBreakers>
 </document>

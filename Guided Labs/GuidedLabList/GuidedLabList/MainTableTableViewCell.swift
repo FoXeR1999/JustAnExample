@@ -10,8 +10,17 @@ import UIKit
 
 class MainTableTableViewCell: UITableViewCell {
 
+    var homework: Homework? {
+        didSet {
+            updateCell()
+        }
+    }
     
+    @IBOutlet weak var classLabel: UILabel!
     
+    @IBOutlet weak var assignmentLabel: UILabel!
+    
+    @IBOutlet weak var dueDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +33,16 @@ class MainTableTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func updateCell() {
+        if let unwrappedHomework = homework {
+            classLabel.text = unwrappedHomework.className
+            assignmentLabel.text = unwrappedHomework.homework
+            dueDate.text = unwrappedHomework.dueDate
+        } else {
+            classLabel.text = nil
+            assignmentLabel.text = nil
+            dueDate.text = nil
+        }
+    }
+    
 }
