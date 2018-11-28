@@ -5,7 +5,9 @@
  
  Add an extension to the `Workout` struct below and make it adopt the `CustomStringConvertible` protocol.
  */
-struct Workout {
+struct Workout: CustomStringConvertible {
+    var description: String
+    
     var distance: Double
     var time: Double
     var averageHR: Int
@@ -13,12 +15,43 @@ struct Workout {
 /*:
  Now create another extension for `Workout` and add a property `speed` of type `Double`. It should be a computed property that returns the average meters per second traveled during the workout.
  */
+extension Workout {
+    
+    func speed() -> Double {
+        return (distance / time)
+    }
+    
+    func harderWorkout() -> Workout {
+        
+        let longerDistance = distance * 2
+        let longerTime = time * 2
+        let higherHR = averageHR + 40
+        
+        return Workout.init(description: "Harder Workout", distance: longerDistance, time: longerTime, averageHR: higherHR)
+    }
+    
+    mutating func actualHarderWorkout() {
+        self = harderWorkout()
+    }
+}
 
 
+/*
+ UIView
+ frame
+ bounds
+ center
+ transform
+ alpha
+ backgroundColor
+ */
 /*:
  Now add a method `harderWorkout` that takes no parameters and returns another `Workout` instance. This method should double the `distance` and `time` properties, and add 40 to `averageHR`. Create an instance of `Workout` and print it to the console. Then call `harderWorkout` and print the new `Workout` instance to the console
  */
-
+var capillary = Workout(description: "75 minute run", distance: 12, time: 75, averageHR: 120)
+print(capillary.description, capillary.distance, capillary.time, capillary.averageHR)
+capillary.actualHarderWorkout()
+print(capillary.description, capillary.distance, capillary.time, capillary.averageHR)
 
 /*:
  
