@@ -18,18 +18,40 @@ class MainTableViewController: UITableViewController {
     
     var homeworks: [Homework] = []
     
+    @IBAction func unwindFromEditing(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        let homeworkSetupViewController = segue.source as? HomeworkSetupViewController
+        
+        if let homework = homeworkSetupViewController?.homework {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                homeworks[selectedIndexPath.row] = homework
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                let newIndexPath = IndexPath(row: homeworks.count, section: 0)
+                homeworks.append(homework)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            
+            Homework.saveToFile(homeworks: homeworks)
+        }
+        
+    }
+    
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
         guard let homeworkSetupViewController = segue.source as? HomeworkSetupViewController, let homework = homeworkSetupViewController.homework else { return }
         
         homeworks.append(homework)
         
+        Homework.saveToFile(homeworks: homeworks)
+        
         tableView.reloadData()
         
     }
     
     /////////////////////////////
-    // MARK: Delete Homeworks //
+    // MARK: Delete homeworks //
     ///////////////////////////
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -61,6 +83,8 @@ class MainTableViewController: UITableViewController {
         if let savedHomeworks = Homework.loadFromFile() {
             homeworks = savedHomeworks
         }
+        
+        Homework.saveToFile(homeworks: homeworks)
     }
     
     // MARK: - Table view data source
@@ -94,10 +118,10 @@ class MainTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForSelectedRow!
             let homework = homeworks[indexPath.row]
             
-            guard let homeworkSetupViewController = UIViewController() as? HomeworkSetupViewController else { return }
-            homeworkSetupViewController.homework?.className = homework.className
-            homeworkSetupViewController.homework?.homework = homework.homework
-            homeworkSetupViewController.homework?.dueDate = homework.dueDate
+            guard let homeworkSetupViewController = segue.destination as? HomeworkSetupViewController else { return }
+            
+            homeworkSetupViewController.homework = homework
+
         }
     }
     

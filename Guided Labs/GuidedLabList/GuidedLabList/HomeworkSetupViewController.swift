@@ -39,19 +39,30 @@ class HomeworkSetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        classTextField.text = homework?.className
+        homeworkTextField.text = homework?.homework
+        dueDateTextField.text = homework?.dueDate
+        
     }
     
-
-    /*
+    
+    
+    
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        let newClassName = classTextField.text ?? ""
+        let newHomework = homeworkTextField.text ?? ""
+        let newDueDate = dueDateTextField.text ?? ""
+        homework = Homework(className: newClassName, homework: newHomework, dueDate: newDueDate)
     }
-    */
-
+    
+    
 }

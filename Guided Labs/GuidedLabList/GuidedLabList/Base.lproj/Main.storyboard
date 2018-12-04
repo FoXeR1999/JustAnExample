@@ -166,6 +166,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ljs-Tl-JH0">
                             <connections>
                                 <action selector="saveTapped:" destination="gUi-Ox-8bD" id="7fO-ih-5ef"/>
+                                <segue destination="NyW-89-XNW" kind="unwind" identifier="saveUnwind" unwindAction="unwindFromEditingWithSegue:" id="TfV-Bo-A6D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
