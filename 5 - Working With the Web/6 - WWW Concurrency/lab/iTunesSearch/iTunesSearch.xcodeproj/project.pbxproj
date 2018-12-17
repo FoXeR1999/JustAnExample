@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380D394B21C7F1C300F06DF1 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D394A21C7F1C200F06DF1 /* StoreItem.swift */; };
+		380D394D21C7F20800F06DF1 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D394C21C7F20800F06DF1 /* URL+Helpers.swift */; };
+		380D394F21C7F23400F06DF1 /* StoreItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D394E21C7F23400F06DF1 /* StoreItemController.swift */; };
 		6881F3B31E66032600E14215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881F3B21E66032600E14215 /* AppDelegate.swift */; };
 		6881F3BA1E66032600E14215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6881F3B91E66032600E14215 /* Assets.xcassets */; };
 		6881F3BD1E66032600E14215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6881F3BB1E66032600E14215 /* LaunchScreen.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		380D394A21C7F1C200F06DF1 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		380D394C21C7F20800F06DF1 /* URL+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
+		380D394E21C7F23400F06DF1 /* StoreItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemController.swift; sourceTree = "<group>"; };
 		6881F3AF1E66032600E14215 /* iTunesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6881F3B21E66032600E14215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6881F3B91E66032600E14215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,8 +62,11 @@
 			isa = PBXGroup;
 			children = (
 				6881F3B21E66032600E14215 /* AppDelegate.swift */,
-				6881F3C81E66034A00E14215 /* StoreItemListTableViewController.swift */,
 				6881F3C41E66033D00E14215 /* Main.storyboard */,
+				6881F3C81E66034A00E14215 /* StoreItemListTableViewController.swift */,
+				380D394A21C7F1C200F06DF1 /* StoreItem.swift */,
+				380D394C21C7F20800F06DF1 /* URL+Helpers.swift */,
+				380D394E21C7F23400F06DF1 /* StoreItemController.swift */,
 				6881F3B91E66032600E14215 /* Assets.xcassets */,
 				6881F3BB1E66032600E14215 /* LaunchScreen.storyboard */,
 				6881F3CE1E66480200E14215 /* iTunesSearch.playground */,
@@ -139,8 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380D394B21C7F1C300F06DF1 /* StoreItem.swift in Sources */,
+				380D394D21C7F20800F06DF1 /* URL+Helpers.swift in Sources */,
 				6881F3CC1E66034A00E14215 /* StoreItemListTableViewController.swift in Sources */,
 				6881F3B31E66032600E14215 /* AppDelegate.swift in Sources */,
+				380D394F21C7F23400F06DF1 /* StoreItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
