@@ -6,13 +6,14 @@
 //  Copyright © 2018 Justin Herzog. All rights reserved.
 //
 
-//baseURL = URL(string: "https://randomuser.me/api/")
-
 import Foundation
 
 struct NetworkController {
     
-    func fetchRandomUsers(completion: @escaping ([User]?) -> Void) {
+    func fetchRandomUsers(searchTerm: String, completion: @escaping ([User]?) -> Void) {
+        
+        let baseURL = URL(string: "https://randomuser.me/api/?results=100&name=\(searchTerm)")
+        
         let task = URLSession.shared.dataTask(with: baseURL!) { (data, response, error) in
             if let data = data,
                 let rawJSON = try? JSONSerialization.jsonObject(with: data),

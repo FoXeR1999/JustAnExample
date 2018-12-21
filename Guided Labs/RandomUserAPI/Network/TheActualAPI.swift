@@ -10,28 +10,19 @@
 
 import Foundation
 
-let baseURL = URL(string: "https://randomuser.me/api/?results=100&name=")
-
 struct User  {
     
     let gender: String
     ///
-    
-    
     let firstName: String
     let lastName: String
     ///
-    
-    
     let age: Int
     ///
-    
-    
     let thumbnailPicture: String
     let largePicture: String
     /////////////////////////////////////
-    
-    
+
     init?(dictionary: [String : AnyObject]) {
         
         guard let gender = dictionary["gender"] as? String else { return nil }
@@ -53,7 +44,6 @@ struct User  {
         self.thumbnailPicture = thumbnailPicture
         self.largePicture = largePicture
     }
-    
     
     /////////////////////////////////////
 //    enum CodingKeys: String, CodingKey {
