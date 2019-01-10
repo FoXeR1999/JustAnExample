@@ -23,6 +23,10 @@ class OrderTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return MenuController.shared.order.menuItems.count
@@ -85,6 +89,12 @@ class OrderTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ConfirmationSegue" {
+            let orderConfirmationViewController = segue.destination as! OrderConfirmationViewController
+            orderConfirmationViewController.minutes = orderMinutes
+        }
+    }
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

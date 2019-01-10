@@ -14,16 +14,19 @@ class OrderConfirmationViewController: UIViewController {
     var minutes: Int!
     
     @IBAction func unwindToOrderList(segue: UIStoryboardSegue) {
-        
+        if segue.identifier == "DismissConfirmation" {
+            MenuController.shared.order.menuItems.removeAll()
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        timeRemainingLabel.text = "Thank you for your order! Your wait time is approximately \(minutes!) minutes."
     }
     
+   
 
     /*
     // MARK: - Navigation
