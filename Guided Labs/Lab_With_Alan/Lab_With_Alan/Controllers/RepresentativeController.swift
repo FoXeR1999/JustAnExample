@@ -57,14 +57,32 @@ class RepresentativeController {
     }
     
     func deleteRep(rep: Representative) {
-        
+        CoreDataStack.context.delete(rep)
+        saveToPersistentStorage()
     }
     
     func saveRep(rep: Representative) {
+        guard let name = rep.name,
+        let phoneNumber = rep.phoneNumber,
+            let address = rep.address else { return }
         
+        for representative in representatives {
+            deleteRep(rep: representative)
+        }
+        
+        let myRep = Representative(context: CoreDataStack.context)
+        myRep.name = name
+        myRep.address = address
+        myRep.phoneNumber = phoneNumber
+        saveToPersistentStorage()
     }
     
     private func saveToPersistentStorage() {
         
+        do {
+            try CoreDataStack.context.save()
+        } catch {
+            print("AHHH")
+        }
     }
 }
