@@ -39,7 +39,7 @@ class PersonTableViewController: UITableViewController {
         
         let emoji = EmojiController.sharedEmojiController.emojis[indexPath.row]
         
-        cell.textLabel?.text = emoji.emoji
+        cell.detailTextLabel?.text = emoji.emoji
 
         return cell
     }
@@ -47,9 +47,11 @@ class PersonTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let person = PersonController.sharedPersonController.people[indexPath.row]
+        let emoji = EmojiController.sharedEmojiController.emojis[indexPath.row]
         
         if editingStyle == .delete {
             PersonController.sharedPersonController.deletePerson(person: person)
+            EmojiController.sharedEmojiController.deleteEmoji(emoji: emoji)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -67,8 +69,10 @@ class PersonTableViewController: UITableViewController {
             personDetailVC.loadViewIfNeeded()
             
             let person = PersonController.sharedPersonController.people[selectedRow]
+            let emoji = EmojiController.sharedEmojiController.emojis[selectedRow]
             
             personDetailVC.person = person
+            personDetailVC.emoji = emoji
         }
     }
     
