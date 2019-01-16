@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aFI-UW-nJo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--People I Know-->
+        <scene sceneID="d9y-Rl-unw">
+            <objects>
+                <tableViewController id="CWQ-5e-59e" customClass="PersonTableViewController" customModule="Cool_As" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ulF-Ko-xxm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" textLabel="5EW-5o-Y5v" detailTextLabel="bCl-u2-tms" style="IBUITableViewCellStyleValue1" id="xad-cp-SLx">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xad-cp-SLx" id="xyF-Uw-cr4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5EW-5o-Y5v">
+                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bCl-u2-tms">
+                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="4D5-JL-CUa" kind="show" identifier="toEditPersonView" id="ZBL-Su-9BM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CWQ-5e-59e" id="mDq-F3-fjg"/>
+                            <outlet property="delegate" destination="CWQ-5e-59e" id="Rl2-1i-RmW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="People I Know" id="ajv-oa-rT8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="knZ-6I-XpH">
+                            <connections>
+                                <segue destination="4D5-JL-CUa" kind="show" id="Jkk-mW-eK0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XMQ-gw-ag4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1329" y="150"/>
+        </scene>
+        <!--Edit Person View Controller-->
+        <scene sceneID="2Q3-MK-2st">
+            <objects>
+                <viewController id="4D5-JL-CUa" customClass="EditPersonViewController" customModule="Cool_As" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GZM-4e-vjN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gi2-qr-O0u">
+                                <rect key="frame" x="16" y="117" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkk-5v-bYw">
+                                <rect key="frame" x="16" y="220" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person's Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJs-FS-muv">
+                                <rect key="frame" x="16" y="80" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp2-X4-YhW">
+                                <rect key="frame" x="16" y="266" width="343" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="4D5-JL-CUa" eventType="touchUpInside" id="Is5-tn-IPh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If that person were an emoji, what would they be?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnT-Yk-3Db">
+                                <rect key="frame" x="16" y="163" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zpb-66-ydt" firstAttribute="trailing" secondItem="pJs-FS-muv" secondAttribute="trailing" constant="16" id="40i-pT-OHu"/>
+                            <constraint firstItem="mkk-5v-bYw" firstAttribute="top" secondItem="qnT-Yk-3Db" secondAttribute="bottom" constant="16" id="FDf-79-usE"/>
+                            <constraint firstItem="Gi2-qr-O0u" firstAttribute="leading" secondItem="Zpb-66-ydt" secondAttribute="leading" constant="16" id="IAB-at-79Q"/>
+                            <constraint firstItem="Gi2-qr-O0u" firstAttribute="top" secondItem="pJs-FS-muv" secondAttribute="bottom" constant="16" id="MOa-xD-JHy"/>
+                            <constraint firstItem="Zpb-66-ydt" firstAttribute="trailing" secondItem="wp2-X4-YhW" secondAttribute="trailing" constant="16" id="N5X-xz-esL"/>
+                            <constraint firstItem="mkk-5v-bYw" firstAttribute="leading" secondItem="Zpb-66-ydt" secondAttribute="leading" constant="16" id="QCS-Yh-y8L"/>
+                            <constraint firstItem="pJs-FS-muv" firstAttribute="top" secondItem="Zpb-66-ydt" secondAttribute="top" constant="16" id="c5a-Vw-SFc"/>
+                            <constraint firstItem="pJs-FS-muv" firstAttribute="leading" secondItem="Zpb-66-ydt" secondAttribute="leading" constant="16" id="hCj-7v-oUV"/>
+                            <constraint firstItem="Zpb-66-ydt" firstAttribute="trailing" secondItem="mkk-5v-bYw" secondAttribute="trailing" constant="16" id="hfB-uf-4rK"/>
+                            <constraint firstItem="qnT-Yk-3Db" firstAttribute="top" secondItem="Gi2-qr-O0u" secondAttribute="bottom" constant="16" id="lqN-tV-QBq"/>
+                            <constraint firstItem="wp2-X4-YhW" firstAttribute="leading" secondItem="Zpb-66-ydt" secondAttribute="leading" constant="16" id="qQm-OE-dH1"/>
+                            <constraint firstItem="Zpb-66-ydt" firstAttribute="trailing" secondItem="qnT-Yk-3Db" secondAttribute="trailing" constant="16" id="u1w-U9-f23"/>
+                            <constraint firstItem="wp2-X4-YhW" firstAttribute="top" secondItem="mkk-5v-bYw" secondAttribute="bottom" constant="16" id="uTO-ID-LQb"/>
+                            <constraint firstItem="Zpb-66-ydt" firstAttribute="trailing" secondItem="Gi2-qr-O0u" secondAttribute="trailing" constant="16" id="ukq-dd-hbs"/>
+                            <constraint firstItem="qnT-Yk-3Db" firstAttribute="leading" secondItem="Zpb-66-ydt" secondAttribute="leading" constant="16" id="yDV-Lq-TeS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zpb-66-ydt"/>
+                    </view>
+                    <connections>
+                        <outlet property="emojiLabel" destination="qnT-Yk-3Db" id="YpU-MX-q0d"/>
+                        <outlet property="emojiTextField" destination="mkk-5v-bYw" id="nCB-II-65k"/>
+                        <outlet property="personLabel" destination="pJs-FS-muv" id="277-Ky-6WM"/>
+                        <outlet property="personNameTextField" destination="Gi2-qr-O0u" id="Qg0-Ar-v16"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nvc-A8-2Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2063" y="150"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xEM-Ii-U4E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aFI-UW-nJo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sdS-nM-7ZD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CWQ-5e-59e" kind="relationship" relationship="rootViewController" id="38Y-xv-2nM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="74o-aP-Ms9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="150"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZBL-Su-9BM"/>
+    </inferredMetricsTieBreakers>
+</document>
