@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cbY-hk-5nX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="1L4-Qh-QZ2">
+            <objects>
+                <viewController id="cbY-hk-5nX" customClass="MainViewController" customModule="Tap_Jack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tMC-vw-G7P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COl-BD-CQ0">
+                                <rect key="frame" x="100" y="283.5" width="175" height="100"/>
+                                <color key="backgroundColor" red="0.13214878349734815" green="0.0" blue="0.61088197969543145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="NIX-gq-riY"/>
+                                    <constraint firstAttribute="width" constant="175" id="Qew-UL-mwx"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Tap Jack!">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <font key="NSFont" size="30" name="Futura-CondensedExtraBold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="cbY-hk-5nX" eventType="touchUpInside" id="lYJ-2H-FeU"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XTX-sa-B8G">
+                                <rect key="frame" x="67.5" y="163.5" width="240" height="340"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="uVh-uA-XQe"/>
+                                    <constraint firstAttribute="width" constant="240" id="vvg-9b-eWY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="52" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-Sb-Stj">
+                                <rect key="frame" x="16" y="36" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umG-cd-1mq">
+                                <rect key="frame" x="316" y="36" width="43" height="30"/>
+                                <state key="normal" title="Tester"/>
+                                <connections>
+                                    <action selector="testerButtonTapped:" destination="cbY-hk-5nX" eventType="touchUpInside" id="kmH-b6-mhu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10101596531255783" green="0.34158867385786806" blue="0.13102211659560428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XTX-sa-B8G" firstAttribute="centerY" secondItem="tMC-vw-G7P" secondAttribute="centerY" id="Gh2-Ta-rez"/>
+                            <constraint firstItem="COl-BD-CQ0" firstAttribute="centerY" secondItem="tMC-vw-G7P" secondAttribute="centerY" id="Kzx-hf-HUd"/>
+                            <constraint firstItem="mH5-Sb-Stj" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="ND2-jz-gkn"/>
+                            <constraint firstItem="XTX-sa-B8G" firstAttribute="centerX" secondItem="tMC-vw-G7P" secondAttribute="centerX" id="OWi-Pi-VX1"/>
+                            <constraint firstItem="COl-BD-CQ0" firstAttribute="centerX" secondItem="tMC-vw-G7P" secondAttribute="centerX" id="eAF-fs-FOe"/>
+                            <constraint firstItem="umG-cd-1mq" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="qTd-QH-TMi"/>
+                            <constraint firstItem="BGK-HV-XEh" firstAttribute="trailing" secondItem="umG-cd-1mq" secondAttribute="trailing" constant="16" id="rLW-f3-Cny"/>
+                            <constraint firstItem="mH5-Sb-Stj" firstAttribute="leading" secondItem="BGK-HV-XEh" secondAttribute="leading" constant="16" id="uw1-td-Wkb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BGK-HV-XEh"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardPicture" destination="XTX-sa-B8G" id="tb1-L0-7H0"/>
+                        <outlet property="deckCountLabel" destination="mH5-Sb-Stj" id="eQ1-z5-Zan"/>
+                        <outlet property="startButton" destination="COl-BD-CQ0" id="i9i-AO-rvG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCH-KC-7SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="127.28635682158921"/>
+        </scene>
+    </scenes>
+</document>
