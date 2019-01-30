@@ -46,30 +46,34 @@
                                     <constraint firstAttribute="width" constant="240" id="vvg-9b-eWY"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="52" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-Sb-Stj">
-                                <rect key="frame" x="16" y="36" width="21" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-Sb-Stj">
+                                <rect key="frame" x="16" y="36" width="65" height="65"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="52">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="56" name="Futura-CondensedMedium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umG-cd-1mq">
-                                <rect key="frame" x="316" y="36" width="43" height="30"/>
-                                <state key="normal" title="Tester"/>
-                                <connections>
-                                    <action selector="testerButtonTapped:" destination="cbY-hk-5nX" eventType="touchUpInside" id="kmH-b6-mhu"/>
-                                </connections>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ4-NN-JNi">
+                                <rect key="frame" x="313" y="36" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10101596531255783" green="0.34158867385786806" blue="0.13102211659560428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XTX-sa-B8G" firstAttribute="centerY" secondItem="tMC-vw-G7P" secondAttribute="centerY" id="Gh2-Ta-rez"/>
+                            <constraint firstItem="FQ4-NN-JNi" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="IFf-c9-T9i"/>
                             <constraint firstItem="COl-BD-CQ0" firstAttribute="centerY" secondItem="tMC-vw-G7P" secondAttribute="centerY" id="Kzx-hf-HUd"/>
                             <constraint firstItem="mH5-Sb-Stj" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="ND2-jz-gkn"/>
                             <constraint firstItem="XTX-sa-B8G" firstAttribute="centerX" secondItem="tMC-vw-G7P" secondAttribute="centerX" id="OWi-Pi-VX1"/>
                             <constraint firstItem="COl-BD-CQ0" firstAttribute="centerX" secondItem="tMC-vw-G7P" secondAttribute="centerX" id="eAF-fs-FOe"/>
-                            <constraint firstItem="umG-cd-1mq" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="qTd-QH-TMi"/>
-                            <constraint firstItem="BGK-HV-XEh" firstAttribute="trailing" secondItem="umG-cd-1mq" secondAttribute="trailing" constant="16" id="rLW-f3-Cny"/>
                             <constraint firstItem="mH5-Sb-Stj" firstAttribute="leading" secondItem="BGK-HV-XEh" secondAttribute="leading" constant="16" id="uw1-td-Wkb"/>
+                            <constraint firstItem="BGK-HV-XEh" firstAttribute="trailing" secondItem="FQ4-NN-JNi" secondAttribute="trailing" constant="16" id="xmc-d8-PM7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BGK-HV-XEh"/>
                     </view>

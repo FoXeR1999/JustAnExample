@@ -12,7 +12,6 @@ import CoreData
 struct DeckController {
     
     let newDeckURL = URL(string: "https://deckofcardsapi.com/api/deck/")
-        
     
     func getDeck(completion: @escaping ((Deck?) -> Void)) {
         
@@ -25,7 +24,7 @@ struct DeckController {
             guard let data = data else { return }
             
             do {
-                let jsonObjects = try JSONSerialization.jsonObject(with: data)
+                let jsonObjects = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 
                 if let dictionary = jsonObjects as? Dictionary<String, Any> {
                     

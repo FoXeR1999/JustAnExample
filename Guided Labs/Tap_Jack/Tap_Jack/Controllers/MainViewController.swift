@@ -11,7 +11,19 @@ import CoreData
 
 class MainViewController: UIViewController {
     
+    ////////////////////////
+    // MARK: Tap Gesture //
+    //////////////////////
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainViewController.myViewTapped(_:)))
+    tapGesture.numberOfTapsRequired = 1
+    tapGesture.numberOfTouchesRequired = 1
+    
+    /////////////////////
+    var pictureIndex: Int = 0
+    
     var timer = Timer()
+    
+    var imageArray: [UIImage] = []
     
     let deckController = DeckController()
     
@@ -33,7 +45,7 @@ class MainViewController: UIViewController {
         startButton.layer.cornerRadius = 5
         startButton.contentRect(forBounds: buttonRect)
         //////////////////////////////////
-        //fetchDeck()
+        getCardImages()
     }
     
     ////////////////////////
@@ -54,23 +66,33 @@ class MainViewController: UIViewController {
         })
         cardPicture.isHidden = false
         
-        cardController.getCards { (results) in
-            print(results)
-        }
+        runTimer()
     }
     ///////////////////////////////////////////////////////////////////
     
-    @IBAction func testerButtonTapped(_ sender: Any) {
-        
+    func getCardImages() {
+        cardController.getCardURL { (fetchedImageArray) in
+            self.imageArray = fetchedImageArray
+        }
     }
     
     @objc func displayNewCard() {
+        cardPicture.image = imageArray[pictureIndex]
+        deckCountLabel.text = String(52 - pictureIndex)
+        pictureIndex += 1
         
+        if pictureIndex == 52 {
+            pictureIndex = 0
+            imageArray.shuffle()
+        }
     }
     
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(displayNewCard), userInfo: nil, repeats: true)
+        func runTimer() {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(displayNewCard), userInfo: nil, repeats: true)
+        }
+    
+    @objc func myViewTapped(_ sender: UITapGestureRecognizer) {
+        // Make the function
     }
     
-  
 }
