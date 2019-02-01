@@ -39,19 +39,23 @@
                                     <action selector="startButtonTapped:" destination="cbY-hk-5nX" eventType="touchUpInside" id="lYJ-2H-FeU"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XTX-sa-B8G">
+                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XTX-sa-B8G">
                                 <rect key="frame" x="67.5" y="163.5" width="240" height="340"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="340" id="uVh-uA-XQe"/>
                                     <constraint firstAttribute="width" constant="240" id="vvg-9b-eWY"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="VHz-cF-PfT" appends="YES" id="pNV-Lz-o1H"/>
+                                </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-Sb-Stj">
-                                <rect key="frame" x="16" y="36" width="65" height="65"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-Sb-Stj">
+                                <rect key="frame" x="16" y="36" width="46.5" height="67.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="52">
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="56" name="Futura-CondensedMedium"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -62,28 +66,55 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ4-NN-JNi">
                                 <rect key="frame" x="313" y="36" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pauseButtonTapped:" destination="cbY-hk-5nX" eventType="touchUpInside" id="m8c-dy-XGe"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7N-ac-kBV">
+                                <rect key="frame" x="16" y="36" width="343" height="106"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Score
+0</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="44" name="Futura-CondensedMedium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10101596531255783" green="0.34158867385786806" blue="0.13102211659560428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="e7N-ac-kBV" firstAttribute="leading" secondItem="mH5-Sb-Stj" secondAttribute="leading" id="Dmf-mL-XNH"/>
                             <constraint firstItem="XTX-sa-B8G" firstAttribute="centerY" secondItem="tMC-vw-G7P" secondAttribute="centerY" id="Gh2-Ta-rez"/>
                             <constraint firstItem="FQ4-NN-JNi" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="IFf-c9-T9i"/>
                             <constraint firstItem="COl-BD-CQ0" firstAttribute="centerY" secondItem="tMC-vw-G7P" secondAttribute="centerY" id="Kzx-hf-HUd"/>
                             <constraint firstItem="mH5-Sb-Stj" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="ND2-jz-gkn"/>
                             <constraint firstItem="XTX-sa-B8G" firstAttribute="centerX" secondItem="tMC-vw-G7P" secondAttribute="centerX" id="OWi-Pi-VX1"/>
+                            <constraint firstItem="e7N-ac-kBV" firstAttribute="top" secondItem="BGK-HV-XEh" secondAttribute="top" constant="16" id="ZjM-iU-3m8"/>
                             <constraint firstItem="COl-BD-CQ0" firstAttribute="centerX" secondItem="tMC-vw-G7P" secondAttribute="centerX" id="eAF-fs-FOe"/>
                             <constraint firstItem="mH5-Sb-Stj" firstAttribute="leading" secondItem="BGK-HV-XEh" secondAttribute="leading" constant="16" id="uw1-td-Wkb"/>
                             <constraint firstItem="BGK-HV-XEh" firstAttribute="trailing" secondItem="FQ4-NN-JNi" secondAttribute="trailing" constant="16" id="xmc-d8-PM7"/>
+                            <constraint firstItem="e7N-ac-kBV" firstAttribute="trailing" secondItem="FQ4-NN-JNi" secondAttribute="trailing" id="zhe-Vf-Dmu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BGK-HV-XEh"/>
                     </view>
                     <connections>
                         <outlet property="cardPicture" destination="XTX-sa-B8G" id="tb1-L0-7H0"/>
                         <outlet property="deckCountLabel" destination="mH5-Sb-Stj" id="eQ1-z5-Zan"/>
+                        <outlet property="scoreLabel" destination="e7N-ac-kBV" id="F8z-MI-6dX"/>
                         <outlet property="startButton" destination="COl-BD-CQ0" id="i9i-AO-rvG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCH-KC-7SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VHz-cF-PfT">
+                    <connections>
+                        <action selector="cardTapped:" destination="cbY-hk-5nX" id="fKU-iA-TUH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="127.28635682158921"/>
         </scene>

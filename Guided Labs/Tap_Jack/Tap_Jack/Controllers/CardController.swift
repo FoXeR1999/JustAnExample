@@ -55,13 +55,17 @@ struct CardController {
         })
     }
     
-    func getCardURL(completion: @escaping (([UIImage]) -> Void)) {
+    // appending an array adds the term to the back
+    
+    func getCardURL(completion: @escaping (([UIImage]) -> Void), cardsCompletion: @escaping (([Cards]?) -> Void)) {
         
         var imageArray: [UIImage] = []
         
         _ = getCards(completion: { (cardsArray) in
             
             guard let cardsArray = cardsArray else { return }
+            
+            cardsCompletion(cardsArray)
             
             for card in cardsArray {
                 guard let unwrappedImage = card.image,

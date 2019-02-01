@@ -11,17 +11,13 @@ import CoreData
 
 class MainViewController: UIViewController {
     
-    ////////////////////////
-    // MARK: Tap Gesture //
-    //////////////////////
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainViewController.myViewTapped(_:)))
-    tapGesture.numberOfTapsRequired = 1
-    tapGesture.numberOfTouchesRequired = 1
-    
-    /////////////////////
     var pictureIndex: Int = 0
     
+    var scoreIndex: Int = 0
+    
     var timer = Timer()
+    
+    var cardsArray: [Cards] = []
     
     var imageArray: [UIImage] = []
     
@@ -31,11 +27,17 @@ class MainViewController: UIViewController {
     
     let newDeckURL = URL(string: "https://deckofcardsapi.com/api/deck/")
     
+    
+    
     @IBOutlet weak var startButton: UIButton!
     
     @IBOutlet weak var deckCountLabel: UILabel!
     
     @IBOutlet weak var cardPicture: UIImageView!
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,14 +67,17 @@ class MainViewController: UIViewController {
             self.startButton.isHidden = true
         })
         cardPicture.isHidden = false
-        
+        cardPicture.isUserInteractionEnabled = true
         runTimer()
     }
     ///////////////////////////////////////////////////////////////////
     
     func getCardImages() {
-        cardController.getCardURL { (fetchedImageArray) in
+        cardController.getCardURL(completion: { (fetchedImageArray) in
             self.imageArray = fetchedImageArray
+        }) { (fetchedCardsArray) in
+            guard let fetchedCardsArray = fetchedCardsArray else { return }
+            self.cardsArray = fetchedCardsArray
         }
     }
     
@@ -87,12 +92,25 @@ class MainViewController: UIViewController {
         }
     }
     
-        func runTimer() {
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(displayNewCard), userInfo: nil, repeats: true)
-        }
-    
-    @objc func myViewTapped(_ sender: UITapGestureRecognizer) {
-        // Make the function
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(displayNewCard), userInfo: nil, repeats: true)
     }
     
+    @IBAction func cardTapped(_ sender: Any) {
+        let currentCardID = cardsArray[pictureIndex - 1]
+        
+        guard let unwrappedCurrentCardIDCode = currentCardID.code else { return }
+        
+        if unwrappedCurrentCardIDCode.contains("J") {
+            scoreIndex += 1
+            scoreLabel.text = "Score \n\(scoreIndex)"
+        } else {
+            scoreIndex -= 1
+            scoreLabel.text = "Score \n\(scoreIndex)"
+        }
+    }
+    
+    @IBAction func pauseButtonTapped(_ sender: Any) {
+        
+    }
 }
