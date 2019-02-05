@@ -31,6 +31,7 @@
                                             <attributes>
                                                 <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <font key="NSFont" size="30" name="Futura-CondensedExtraBold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -63,9 +64,24 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ4-NN-JNi">
-                                <rect key="frame" x="313" y="36" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQ4-NN-JNi">
+                                <rect key="frame" x="269" y="36" width="90" height="70"/>
+                                <color key="backgroundColor" red="0.13214878350000001" green="0.0" blue="0.61088197970000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="26J-xv-tH0"/>
+                                    <constraint firstAttribute="height" constant="70" id="ZJM-bZ-MIN"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Pause">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="37" name="Futura-CondensedMedium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <action selector="pauseButtonTapped:" destination="cbY-hk-5nX" eventType="touchUpInside" id="m8c-dy-XGe"/>
                                 </connections>
@@ -105,6 +121,7 @@
                     <connections>
                         <outlet property="cardPicture" destination="XTX-sa-B8G" id="tb1-L0-7H0"/>
                         <outlet property="deckCountLabel" destination="mH5-Sb-Stj" id="eQ1-z5-Zan"/>
+                        <outlet property="pauseButton" destination="FQ4-NN-JNi" id="3y4-6l-gTf"/>
                         <outlet property="scoreLabel" destination="e7N-ac-kBV" id="F8z-MI-6dX"/>
                         <outlet property="startButton" destination="COl-BD-CQ0" id="i9i-AO-rvG"/>
                     </connections>

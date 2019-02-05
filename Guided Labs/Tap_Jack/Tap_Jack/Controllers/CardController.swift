@@ -57,9 +57,11 @@ struct CardController {
     
     // appending an array adds the term to the back
     
-    func getCardURL(completion: @escaping (([UIImage]) -> Void), cardsCompletion: @escaping (([Cards]?) -> Void)) {
+    func getCardURL(completion: @escaping (([UIImage]) -> Void), cardsCompletion: @escaping ([Cards]?) -> Void, cardDeckItemCompletion: @escaping ([CardDeckItem]?) -> Void) {
         
         var imageArray: [UIImage] = []
+        
+        var cardDeckItemArray: [CardDeckItem] = []
         
         _ = getCards(completion: { (cardsArray) in
             
@@ -75,6 +77,10 @@ struct CardController {
                     guard let data = data,
                         let image = UIImage(data: data) else { return }
                     imageArray.append(image)
+                    
+                    cardDeckItemArray.append(CardDeckItem(card: card, image: image))
+                    
+                    cardDeckItemCompletion(cardDeckItemArray)
                     
                     if imageArray.count == 52 {
                         completion(imageArray)
