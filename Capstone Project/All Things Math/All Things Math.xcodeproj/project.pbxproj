@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38306A30220C7BBE0067C983 /* SecondarySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A2F220C7BBE0067C983 /* SecondarySubject.swift */; };
+		38306A32220C83130067C983 /* Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A31220C83130067C983 /* Formula.swift */; };
+		38306A34220C83C90067C983 /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A33220C83C90067C983 /* Proof.swift */; };
+		38306A36220C84070067C983 /* ExampleProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A35220C84070067C983 /* ExampleProblem.swift */; };
+		38306A38220C84480067C983 /* RelatedFormula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A37220C84480067C983 /* RelatedFormula.swift */; };
+		38306A3A220C84950067C983 /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A39220C84950067C983 /* Vocabulary.swift */; };
+		38306A3C220C84E50067C983 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A3B220C84E50067C983 /* Logic.swift */; };
+		38306A3E220C85090067C983 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A3D220C85090067C983 /* Trick.swift */; };
 		38D55DE5220889B8007C85E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55DE4220889B8007C85E2 /* AppDelegate.swift */; };
 		38D55DEA220889B8007C85E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38D55DE8220889B8007C85E2 /* Main.storyboard */; };
 		38D55DEC220889B9007C85E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D55DEB220889B9007C85E2 /* Assets.xcassets */; };
@@ -18,6 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38306A2F220C7BBE0067C983 /* SecondarySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondarySubject.swift; sourceTree = "<group>"; };
+		38306A31220C83130067C983 /* Formula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formula.swift; sourceTree = "<group>"; };
+		38306A33220C83C90067C983 /* Proof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
+		38306A35220C84070067C983 /* ExampleProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProblem.swift; sourceTree = "<group>"; };
+		38306A37220C84480067C983 /* RelatedFormula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedFormula.swift; sourceTree = "<group>"; };
+		38306A39220C84950067C983 /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
+		38306A3B220C84E50067C983 /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		38306A3D220C85090067C983 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
 		38D55DE1220889B8007C85E2 /* All Things Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All Things Math.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D55DE4220889B8007C85E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38D55DE9220889B8007C85E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +100,14 @@
 			isa = PBXGroup;
 			children = (
 				38D55E0B22089FB0007C85E2 /* SubjectController.swift */,
+				38306A2F220C7BBE0067C983 /* SecondarySubject.swift */,
+				38306A31220C83130067C983 /* Formula.swift */,
+				38306A33220C83C90067C983 /* Proof.swift */,
+				38306A35220C84070067C983 /* ExampleProblem.swift */,
+				38306A37220C84480067C983 /* RelatedFormula.swift */,
+				38306A39220C84950067C983 /* Vocabulary.swift */,
+				38306A3B220C84E50067C983 /* Logic.swift */,
+				38306A3D220C85090067C983 /* Trick.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,9 +192,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38306A36220C84070067C983 /* ExampleProblem.swift in Sources */,
 				38D55E0C22089FB0007C85E2 /* SubjectController.swift in Sources */,
+				38306A3E220C85090067C983 /* Trick.swift in Sources */,
+				38306A32220C83130067C983 /* Formula.swift in Sources */,
 				38D55E0222088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift in Sources */,
+				38306A3C220C84E50067C983 /* Logic.swift in Sources */,
+				38306A38220C84480067C983 /* RelatedFormula.swift in Sources */,
+				38306A3A220C84950067C983 /* Vocabulary.swift in Sources */,
 				38D55DE5220889B8007C85E2 /* AppDelegate.swift in Sources */,
+				38306A34220C83C90067C983 /* Proof.swift in Sources */,
+				38306A30220C7BBE0067C983 /* SecondarySubject.swift in Sources */,
 				38D55DF722088B58007C85E2 /* DetailViewController.swift in Sources */,
 				38D55E0022088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift in Sources */,
 			);
