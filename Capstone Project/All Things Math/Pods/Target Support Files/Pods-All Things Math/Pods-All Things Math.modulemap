@@ -1,0 +1,6 @@
+framework module Pods_All_Things_Math {
+  umbrella header "Pods-All Things Math-umbrella.h"
+
+  export *
+  module * { export * }
+}

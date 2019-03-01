@@ -9,5 +9,6 @@
 import Foundation
 
 struct RelatedFormulas {
-    let relatedFormula: [Formula]
+    let formulaName: String
+    let description: String
 }

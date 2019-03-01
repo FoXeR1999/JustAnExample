@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Formula {
     let formulaName: String
-    let actualFormula: String
+    let actualFormula: Any
     let variableExplanation: String
     let description: String
 }

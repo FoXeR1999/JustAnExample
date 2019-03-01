@@ -12,5 +12,6 @@ import UIKit
 struct Proof {
     let proofName: String
     let proofDescription: String
-    let proofImage: UIImage? = nil
+    let proofImage: String? // Don't forget to convert this to a UIImage
+    
 }

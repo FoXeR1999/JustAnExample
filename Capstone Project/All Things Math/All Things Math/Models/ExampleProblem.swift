@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
+import iosMath
 
 struct ExampleProblem {
-    let exampleProblemName: String
-    let exampleProblemImage: UIImage?
-    let steps: [String]
+    let exampleProblemName: Any
+    let exampleProblemImage: String? // Make sure to convert this to a UIImage later
+    let steps: [Any]
 }

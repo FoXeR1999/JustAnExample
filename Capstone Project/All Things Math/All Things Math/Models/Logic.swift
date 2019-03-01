@@ -9,5 +9,5 @@
 import Foundation
 
 struct Logic {
-    let logic: [String]
+    let logic: [String] // What am I trying to do? How do I do that?
 }
