@@ -9,6 +9,8 @@
 import Foundation
 
 func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
+    var loopCounter: Int = 0
+    
     //    let url = Bundle.main.url(forResource: "AllThingsMath", withExtension: "json")
     var returnedSecondarySubjectArray = [SecondarySubject]()
     
@@ -22,79 +24,126 @@ func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
         
         guard let json = jsonObjects as? Dictionary<String, Any>, // Gets my whole json File
             let secondarySubjectArray = json["SecondarySubjectArray"] as? [Dictionary<String, Any>] else {
-                print("Maybe next year")
+                print("Failed to access SecondarySubjectArray")
                 return
                 
         }
         
         for dict in secondarySubjectArray {
+            guard let unwrappedSecondarySubject = dict["SecondarySubject"] as? [String : Any] else { return }
             
             // SETUP EXAMPLE PROBLEMS \\
             var exampleProblemsArray = [ExampleProblem]()
             
-            guard let unwrappedExampleProblem = dict["exampleProblem"] as? [[String : Any]] else {
-                print("This ain't working")
-                return
+            if unwrappedSecondarySubject.keys.contains("exampleProblem") {
+                guard let unwrappedExampleProblem = unwrappedSecondarySubject["exampleProblem"] as? [[String : Any]] else {
+                    print("Failed to unwrap Example Problem")
+                    return
+                }
                 
+                for exampleProblem in unwrappedExampleProblem {
+                    guard let unwrappedProblemName = exampleProblem["exampleProblemName"] as? String,
+                        let unwrappedProblemImage = exampleProblem["exampleProblemImage"] as? String,
+                        let unwrappedSteps =   exampleProblem["steps"] as? [String] else { return }
+                    
+                    let newExampleProblem = ExampleProblem(
+                        exampleProblemName : unwrappedProblemName,
+                        exampleProblemImage : unwrappedProblemImage,
+                        steps : unwrappedSteps
+                    )
+                    
+                    exampleProblemsArray.append(newExampleProblem)
+                }
             }
             
-            for exampleProblem in unwrappedExampleProblem {
-                guard let unwrappedProblemName = exampleProblem["exampleProblemName"] as? String,
-                    let unwrappedProblemImage = exampleProblem["exampleProblemImage"] as? String,
-                    let unwrappedSteps =   exampleProblem["steps"] as? [String] else { return }
-                
-                let newExampleProblem = ExampleProblem(
-                    exampleProblemName : unwrappedProblemName,
-                    exampleProblemImage : unwrappedProblemImage,
-                    steps : unwrappedSteps
-                )
-                
-                exampleProblemsArray.append(newExampleProblem)
-            }
             // SETUP RELATED FORMULAS \\
             var relatedFormulasArray = [RelatedFormulas]()
             
-            guard let unwrappedRelatedFormulas = dict["relatedFormulas"] as? [[String : String]] else { return }
-            
-            for relatedFormula in unwrappedRelatedFormulas {
-                guard let unwrappedFormulaName = relatedFormula["formulaName"],
-                    let unwrappedDescription = relatedFormula["description"] else { return }
+            if unwrappedSecondarySubject.keys.contains("relatedFormulas") {
+                guard let unwrappedRelatedFormulas = unwrappedSecondarySubject["relatedFormulas"] as? [[String : String]] else {
+                    print("Failed to get unwrappedRelatedFormulas")
+                    return
+                }
                 
-                let newRelatedFormula = RelatedFormulas(
-                    formulaName : unwrappedFormulaName,
-                    description : unwrappedDescription
-                )
-                
-                relatedFormulasArray.append(newRelatedFormula)
+                for relatedFormula in unwrappedRelatedFormulas {
+                    guard let unwrappedFormulaName = relatedFormula["formulaName"],
+                        let unwrappedDescription = relatedFormula["description"] else { return }
+                    
+                    let newRelatedFormula = RelatedFormulas(
+                        formulaName : unwrappedFormulaName,
+                        description : unwrappedDescription
+                    )
+                    
+                    relatedFormulasArray.append(newRelatedFormula)
+                }
             }
             
             // Unwrap EVERYTHING //////////////////////////////////////////////////////////////////
-            guard let unwrappedSubjectIdentifier = dict["subjectIdentifier"] as? String,
-                let unwrappedName = dict["name"] as? String,
+            guard let unwrappedSubjectIdentifier = unwrappedSecondarySubject["subjectIdentifier"] as? String,
+                let unwrappedName = unwrappedSecondarySubject["name"] as? String,
                 // FORMULA \\
-                let unwrappedFormula = dict["formula"] as? Dictionary<String, String>,
+                let unwrappedFormula = unwrappedSecondarySubject["formula"] as? Dictionary<String, String>,
                 let unwrappedFormulaName = unwrappedFormula["formulaName"],
                 let unwrappedActualFormula = unwrappedFormula["actualFormula"],
                 let unwrappedVariableExplanation = unwrappedFormula["variableExplanation"],
-                let unwrappedDescription = unwrappedFormula["description"],
-                // PROOF \\
-                let unwrappedProof = dict["proof"] as? Dictionary<String, String>,
-                let unwrappedProofName = unwrappedProof["proofName"],
-                let unwrappedProofDescription = unwrappedProof["proofDescription"],
-                let unwrappedProofImage = unwrappedProof["proofImage"],
-                // EXAMPLE PROBLEM \\
-                // In the code above \\
-                // RELATED FORMULAS \\
-                // In the code above \\
-                // VOCABULARY \\
-                let unwrappedVocabulary = dict["vocabulary"] as? Dictionary<String, [String]>,
-                let unwrappedInsideVocabulary = unwrappedVocabulary["vocabulary"],
-                // LOGIC \\
-                let unwrappedLogic = dict["logic"] as? Dictionary<String, [String]>,
-                let unwrappedInsideLogic = unwrappedLogic["logic"],
-                // TRICKS \\
-                let unwrappedTrick = dict["trick"] as? Dictionary<String, [String]>,
-                let unwrappedTricks = unwrappedTrick["tricks"] else { print("KUSO"); return }
+                let unwrappedDescription = unwrappedFormula["description"] else {
+                    print("Faild to get subjectIdentifier, Name, or Formula.")
+                    return
+            }
+            // PROOF \\
+            var outsideProofName: String = ""
+            var outsideProofDescription: String = ""
+            var outsideProofImage: String = ""
+            
+            if unwrappedSecondarySubject.keys.contains("proof") {
+                guard let unwrappedProof = unwrappedSecondarySubject["proof"] as? Dictionary<String, String>,
+                    let unwrappedProofName = unwrappedProof["proofName"],
+                    let unwrappedProofDescription = unwrappedProof["proofDescription"],
+                    let unwrappedProofImage = unwrappedProof["proofImage"] else {
+                        print("Failed to get proof")
+                        return
+                }
+                outsideProofName = unwrappedProofName
+                outsideProofDescription = unwrappedProofDescription
+                outsideProofImage = unwrappedProofImage
+            }
+            // EXAMPLE PROBLEM \\
+            // In the code above \\
+            // RELATED FORMULAS \\
+            // In the code above \\
+            // VOCABULARY \\
+            var outsideInsideVocabulary: [String] = []
+            
+            if unwrappedSecondarySubject.keys.contains("vocabulary") {
+                guard let unwrappedVocabulary = unwrappedSecondarySubject["vocabulary"] as? Dictionary<String, [String]>,
+                    let unwrappedInsideVocabulary = unwrappedVocabulary["vocabulary"] else {
+                        print("Failed to get vocabulary")
+                        return
+                }
+                outsideInsideVocabulary = unwrappedInsideVocabulary
+            }
+            // LOGIC \\
+            var outsideInsideLogic: [String] = []
+            
+            if unwrappedSecondarySubject.keys.contains("logic") {
+                guard let unwrappedLogic = unwrappedSecondarySubject["logic"] as? Dictionary<String, [String]>,
+                    let unwrappedInsideLogic = unwrappedLogic["logic"] else {
+                        print("Faild to get logic")
+                        return
+                }
+                outsideInsideLogic = unwrappedInsideLogic
+            }
+            // TRICKS \\
+            var outsideTricks: [String] = []
+            
+            if unwrappedSecondarySubject.keys.contains("trick") {
+                guard let unwrappedTrick = unwrappedSecondarySubject["trick"] as? Dictionary<String, [String]>,
+                    let unwrappedTricks = unwrappedTrick["tricks"] else {
+                        print("Failed to get trick")
+                        return
+                }
+                outsideTricks = unwrappedTricks
+            }
             ///////////////////////////////////////////////////////////////////////////////////////
             
             let newSecondarySubject = SecondarySubject(
@@ -107,28 +156,29 @@ func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
                     description : unwrappedDescription
                 ),
                 proof : Proof(
-                    proofName : unwrappedProofName,
-                    proofDescription : unwrappedProofDescription,
-                    proofImage : unwrappedProofImage
+                    proofName : outsideProofName,
+                    proofDescription : outsideProofDescription,
+                    proofImage : outsideProofImage
                 ),
                 exampleProblems : exampleProblemsArray,
                 relatedFormulas : relatedFormulasArray,
                 vocabulary : Vocabulary(
-                    vocabulary : unwrappedInsideVocabulary
+                    vocabulary : outsideInsideVocabulary
                 ),
                 logic : Logic(
-                    logic : unwrappedInsideLogic
+                    logic : outsideInsideLogic
                 ),
                 tricks : Trick(
-                    tricks : unwrappedTricks
+                    tricks : outsideTricks
                 )
             )
             returnedSecondarySubjectArray.append(newSecondarySubject)
+            loopCounter += 1
+            print(loopCounter)
         }
     } catch {
         print("Didn't intialize JSON")
     }
-    
 }
 
 //struct SecondarySubject {
