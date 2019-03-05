@@ -30,6 +30,8 @@ func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
         }
         
         for dict in secondarySubjectArray {
+            loopCounter += 1
+            print(loopCounter)
             guard let unwrappedSecondarySubject = dict["SecondarySubject"] as? [String : Any] else { return }
             
             // SETUP EXAMPLE PROBLEMS \\
@@ -42,16 +44,27 @@ func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
                 }
                 
                 for exampleProblem in unwrappedExampleProblem {
-                    guard let unwrappedProblemName = exampleProblem["exampleProblemName"] as? String,
-                        let unwrappedProblemImage = exampleProblem["exampleProblemImage"] as? String,
-                        let unwrappedSteps =   exampleProblem["steps"] as? [String] else { return }
+                    var outsideProblemImage: String = ""
+                    var outsideProblemName: String = ""
+                    var outsideSteps: [String] = []
                     
+                    if exampleProblem.keys.contains("exampleProblemImage") {
+                        guard let unwrappedProblemImage = exampleProblem["exampleProblemImage"] as? String else { return }
+                        outsideProblemImage = unwrappedProblemImage
+                    }
+                    if exampleProblem.keys.contains("exampleProblemName") {
+                        guard let unwrappedProblemName = exampleProblem["exampleProblemName"] as? String else { return }
+                        outsideProblemName = unwrappedProblemName
+                    }
+                    if exampleProblem.keys.contains("steps") {
+                        guard let unwrappedSteps = exampleProblem["steps"] as? [String] else { return }
+                        outsideSteps = unwrappedSteps
+                    }
                     let newExampleProblem = ExampleProblem(
-                        exampleProblemName : unwrappedProblemName,
-                        exampleProblemImage : unwrappedProblemImage,
-                        steps : unwrappedSteps
+                        exampleProblemName : outsideProblemName,
+                        exampleProblemImage : outsideProblemImage,
+                        steps : outsideSteps
                     )
-                    
                     exampleProblemsArray.append(newExampleProblem)
                 }
             }
@@ -66,14 +79,22 @@ func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
                 }
                 
                 for relatedFormula in unwrappedRelatedFormulas {
-                    guard let unwrappedFormulaName = relatedFormula["formulaName"],
-                        let unwrappedDescription = relatedFormula["description"] else { return }
+                    var outsideFormulaName: String = ""
+                    var outsideDescription: String = ""
+                    
+                    if relatedFormula.keys.contains("formulaName") {
+                        guard let unwrappedFormulaName = relatedFormula["formulaName"] else { return }
+                        outsideFormulaName = unwrappedFormulaName
+                    }
+                    if relatedFormula.keys.contains("description") {
+                        guard let unwrappedDescription = relatedFormula["description"] else { return }
+                        outsideDescription = unwrappedDescription
+                    }
                     
                     let newRelatedFormula = RelatedFormulas(
-                        formulaName : unwrappedFormulaName,
-                        description : unwrappedDescription
+                        formulaName : outsideFormulaName,
+                        description : outsideDescription
                     )
-                    
                     relatedFormulasArray.append(newRelatedFormula)
                 }
             }
@@ -96,16 +117,27 @@ func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
             var outsideProofImage: String = ""
             
             if unwrappedSecondarySubject.keys.contains("proof") {
-                guard let unwrappedProof = unwrappedSecondarySubject["proof"] as? Dictionary<String, String>,
-                    let unwrappedProofName = unwrappedProof["proofName"],
-                    let unwrappedProofDescription = unwrappedProof["proofDescription"],
-                    let unwrappedProofImage = unwrappedProof["proofImage"] else {
-                        print("Failed to get proof")
-                        return
+                guard let unwrappedProof = unwrappedSecondarySubject["proof"] as? Dictionary<String, String> else { return }
+                
+                var insideProofName: String = ""
+                var insideProofDescription: String = ""
+                var insideProofImage: String = ""
+                
+                if unwrappedProof.keys.contains("proofName") {
+                    guard let unwrappedProofName = unwrappedProof["proofName"] else { return }
+                    insideProofName = unwrappedProofName
                 }
-                outsideProofName = unwrappedProofName
-                outsideProofDescription = unwrappedProofDescription
-                outsideProofImage = unwrappedProofImage
+                if unwrappedProof.keys.contains("proofDescription") {
+                    guard let unwrappedProofDescription = unwrappedProof["proofDescription"] else { return }
+                    insideProofDescription = unwrappedProofDescription
+                }
+                if unwrappedProof.keys.contains("proofImage") {
+                    guard let unwrappedProofImage = unwrappedProof["proofImage"] else { return }
+                    insideProofImage = unwrappedProofImage
+                }
+                outsideProofName = insideProofName
+                outsideProofDescription = insideProofDescription
+                outsideProofImage = insideProofImage
             }
             // EXAMPLE PROBLEM \\
             // In the code above \\
@@ -173,8 +205,7 @@ func getFormulas(completion: @escaping (([SecondarySubject]?) -> Void)) {
                 )
             )
             returnedSecondarySubjectArray.append(newSecondarySubject)
-            loopCounter += 1
-            print(loopCounter)
+            
         }
     } catch {
         print("Didn't intialize JSON")

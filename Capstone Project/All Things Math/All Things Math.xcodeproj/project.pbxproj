@@ -22,7 +22,7 @@
 		38D55DF722088B58007C85E2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55DF622088B58007C85E2 /* DetailViewController.swift */; };
 		38D55E0022088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55DFF22088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift */; };
 		38D55E0222088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55E0122088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift */; };
-		38D55E0C22089FB0007C85E2 /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55E0B22089FB0007C85E2 /* SubjectController.swift */; };
+		38D55E0C22089FB0007C85E2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55E0B22089FB0007C85E2 /* Subject.swift */; };
 		38DF2EE3221F09DA00B4F563 /* SecondarySubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF2EE2221F09DA00B4F563 /* SecondarySubjectController.swift */; };
 		38DF2EE7221F110100B4F563 /* AllThingsMath.json in Resources */ = {isa = PBXBuildFile; fileRef = 38DF2EE6221F110100B4F563 /* AllThingsMath.json */; };
 		38E15A52222D86D50067B7BF /* FormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E15A51222D86D50067B7BF /* FormulaViewController.swift */; };
@@ -55,7 +55,7 @@
 		38D55DF622088B58007C85E2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		38D55DFF22088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadScopeSubjectTableViewController.swift; sourceTree = "<group>"; };
 		38D55E0122088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarrowScopeSubjectTableViewController.swift; sourceTree = "<group>"; };
-		38D55E0B22089FB0007C85E2 /* SubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
+		38D55E0B22089FB0007C85E2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		38DF2EE2221F09DA00B4F563 /* SecondarySubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondarySubjectController.swift; sourceTree = "<group>"; };
 		38DF2EE6221F110100B4F563 /* AllThingsMath.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AllThingsMath.json; path = ../../../../../../Desktop/AllThingsMath.json; sourceTree = "<group>"; };
 		38E15A51222D86D50067B7BF /* FormulaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormulaViewController.swift; path = "All Things Math/Controllers/FormulaViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -119,7 +119,6 @@
 				38D55DFF22088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift */,
 				38D55E0122088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift */,
 				38D55DF622088B58007C85E2 /* DetailViewController.swift */,
-				38D55E0B22089FB0007C85E2 /* SubjectController.swift */,
 				38DF2EE2221F09DA00B4F563 /* SecondarySubjectController.swift */,
 				38E15A51222D86D50067B7BF /* FormulaViewController.swift */,
 				38E15A53222D87000067B7BF /* ProofViewController.swift */,
@@ -145,6 +144,7 @@
 				38306A39220C84950067C983 /* Vocabulary.swift */,
 				38306A3B220C84E50067C983 /* Logic.swift */,
 				38306A3D220C85090067C983 /* Trick.swift */,
+				38D55E0B22089FB0007C85E2 /* Subject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38306A36220C84070067C983 /* ExampleProblem.swift in Sources */,
-				38D55E0C22089FB0007C85E2 /* SubjectController.swift in Sources */,
+				38D55E0C22089FB0007C85E2 /* Subject.swift in Sources */,
 				38E15A5C222D87690067B7BF /* LogicTableViewController.swift in Sources */,
 				38DF2EE3221F09DA00B4F563 /* SecondarySubjectController.swift in Sources */,
 				38E15A62222D910B0067B7BF /* ExampleProblemDetailViewController.swift in Sources */,
