@@ -24,6 +24,31 @@ struct Subjects {
                     var justAlgebraBranch = self.subjects["Algebra"]
                     justAlgebraBranch?.append(value)
                 }
+                if value.subjectIdentifier == "Arithmetic" {
+                    
+                    var justArithmeticBranch = self.subjects["Arithmetic"]
+                    justArithmeticBranch?.append(value)
+                }
+                if value.subjectIdentifier == "Calculus" {
+                    
+                    var justCalculusBranch = self.subjects["Calculus"]
+                    justCalculusBranch?.append(value)
+                }
+                if value.subjectIdentifier == "Geometry" {
+                    
+                    var justGeometryBranch = self.subjects["Geometry"]
+                    justGeometryBranch?.append(value)
+                }
+                if value.subjectIdentifier == "Trigonometry" {
+                    
+                    var justTrigonometry = self.subjects["Trigonometry"]
+                    justTrigonometry?.append(value)
+                }
+                if value.subjectIdentifier == "Statistics and Probability" {
+                    
+                    var justStats = self.subjects["Statistics and Probability"]
+                    justStats?.append(value)
+                }
             }
         }
     }

@@ -14,9 +14,7 @@ class BroadScopeSubjectTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFormulas { (secondarySubjectArray) in
-            print("SUGOI")
-        }
+        subjectsStruct.setUpSubjects()
     }
     
     
@@ -24,17 +22,17 @@ class BroadScopeSubjectTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        return subjectsStruct.subjects.keys.count
-        return 0
+        return subjectsStruct.subjects.keys.count
+//        return 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell", for: indexPath)
         
-//        let sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted() // Alphabatized subjects
+        let sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted() // Alphabatized subjects
         
-//        cell.textLabel?.text = sortedSubjectDictionary[indexPath.row]
+        cell.textLabel?.text = sortedSubjectDictionary[indexPath.row]
         
         return cell
     }
