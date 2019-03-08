@@ -77,6 +77,7 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
         guard let tabBarSubcontrollers = tabBarController.viewControllers else { return } // 0: Formula, 1: Proof, 2: ExampleP, 3: RelatedFor, 4: Vocab, 5: Logic, 6: Trick
         guard let formulaController = tabBarSubcontrollers[0] as? FormulaViewController else { return }
         guard let proofController = tabBarSubcontrollers[1] as? ProofViewController else { return }
+        guard let exampleProblemController = tabBarSubcontrollers[2] as? ExampleProblemsTableViewController else { return }
         
         if let indexPath = tableView.indexPathForSelectedRow,
             segue.identifier == "toTabBarController" {
@@ -90,7 +91,7 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
             formulaController.variableDescription = secondarySubjects[indexPath.row].formula.description
             
             // Proof Controller
-            if secondarySubjects[indexPath.row].proof?.proofName != "" {
+            if secondarySubjects[indexPath.row].proof?.proofName != "" { // If it is something
                 guard let unwrappedProofName = secondarySubjects[indexPath.row].proof?.proofName else { return }
                 proofController.proofName = unwrappedProofName
             }
@@ -101,6 +102,20 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
             if secondarySubjects[indexPath.row].proof?.proofDescription != "" {
                 guard let unwrappedProofDescription = secondarySubjects[indexPath.row].proof?.proofDescription else { return }
                 proofController.proofDescription = unwrappedProofDescription
+            }
+            
+            // Example Problem Controller
+            if !secondarySubjects[indexPath.row].exampleProblems.isEmpty { // If it isn't empty
+                exampleProblemController.numberOfRows = secondarySubjects[indexPath.row].exampleProblems.count
+                
+                for exampleProblem in secondarySubjects[indexPath.row].exampleProblems {
+                    guard let unwrappedExampleName = exampleProblem?.exampleProblemName as? String else { return }
+                    exampleProblemController.namesArray.append(unwrappedExampleName)
+                    guard let unwrappedExampleImage = exampleProblem?.exampleProblemImage else { return }
+                    exampleProblemController.imageArray.append(unwrappedExampleImage)
+                    guard let unwrappedStepsArray = exampleProblem?.steps else { return }
+                    exampleProblemController.stepsArray.append(unwrappedStepsArray)
+                }
             }
         }
     }

@@ -9,7 +9,11 @@
 import UIKit
 
 class ExampleProblemDetailViewController: UIViewController {
-
+    
+    var exampleProblemName: String = ""
+    var exampleProblemImageIdentifier: String = ""
+    var steps: [Any] = []
+    
     @IBOutlet weak var exampleProblemNameLabel: UILabel!
     @IBOutlet weak var stepsLabel: UILabel!
     @IBOutlet weak var exampleProblemImage: UIImageView!
@@ -26,20 +30,25 @@ class ExampleProblemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         stepsLabel.isHidden = true
-        // Do any additional setup after loading the view.
+        
+        exampleProblemNameLabel.text = exampleProblemName
+        exampleProblemImage.image = UIImage(named: exampleProblemImageIdentifier)
+        print(steps.count)
+        stepsLabel.text = ("\(steps[0])\n\(steps[1])\n\(steps[2])")
+        
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
