@@ -10,20 +10,15 @@ import UIKit
 
 class NarrowScopeSubjectTableViewController: UITableViewController {
     
-    let subjectsStruct = Subjects()
-    
-    var secondarySubjects: [String] = []
+    var secondarySubjects: [SecondarySubject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-    }
+    }    
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return secondarySubjects.count
     }
     
@@ -31,7 +26,7 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SecondarySubjectCell", for: indexPath)
         
-         cell.textLabel?.text = secondarySubjects[indexPath.row]  // find out which cell was tapped and pull the array of subjects from the struct
+        cell.textLabel?.text = secondarySubjects[indexPath.row].name  // find out which cell was tapped and pull the array of subjects from the struct
         
         return cell
     }
@@ -72,19 +67,41 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
-     if let indexPath = tableView.indexPathForSelectedRow,
-     segue.identifier == "toNarrowScopeTableView" {
-     
-     
-     
-     }
-     }
-     */
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let tabBarController = segue.destination as? MainTabBarViewController else { return }
+        guard let tabBarSubcontrollers = tabBarController.viewControllers else { return } // 0: Formula, 1: Proof, 2: ExampleP, 3: RelatedFor, 4: Vocab, 5: Logic, 6: Trick
+        guard let formulaController = tabBarSubcontrollers[0] as? FormulaViewController else { return }
+        guard let proofController = tabBarSubcontrollers[1] as? ProofViewController else { return }
+        
+        if let indexPath = tableView.indexPathForSelectedRow,
+            segue.identifier == "toTabBarController" {
+            
+            // Formula Controller
+            guard let unwrappedActualFormula = secondarySubjects[indexPath.row].formula.actualFormula as? String else { return }
+            
+            formulaController.formulaName = secondarySubjects[indexPath.row].formula.formulaName
+            formulaController.actualFormula = unwrappedActualFormula
+            formulaController.variableExplanation = secondarySubjects[indexPath.row].formula.variableExplanation
+            formulaController.variableDescription = secondarySubjects[indexPath.row].formula.description
+            
+            // Proof Controller
+            if secondarySubjects[indexPath.row].proof?.proofName != "" {
+                guard let unwrappedProofName = secondarySubjects[indexPath.row].proof?.proofName else { return }
+                proofController.proofName = unwrappedProofName
+            }
+            if secondarySubjects[indexPath.row].proof?.proofImage != "" {
+                guard let unwrappedProofImage = secondarySubjects[indexPath.row].proof?.proofImage else { return }
+                proofController.proofImageName = unwrappedProofImage
+            }
+            if secondarySubjects[indexPath.row].proof?.proofDescription != "" {
+                guard let unwrappedProofDescription = secondarySubjects[indexPath.row].proof?.proofDescription else { return }
+                proofController.proofDescription = unwrappedProofDescription
+            }
+        }
+    }
 }

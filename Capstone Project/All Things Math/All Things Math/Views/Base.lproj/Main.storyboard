@@ -73,7 +73,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dvN-wk-TOf" kind="show" id="RMA-qb-6Xu"/>
+                                    <segue destination="dvN-wk-TOf" kind="show" identifier="toTabBarController" id="RMA-qb-6Xu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -491,10 +491,10 @@
             </objects>
             <point key="canvasLocation" x="4062" y="-198"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="JUb-Zf-ctA">
             <objects>
-                <tabBarController id="dvN-wk-TOf" sceneMemberID="viewController">
+                <tabBarController id="dvN-wk-TOf" customClass="MainTabBarViewController" customModule="All_Things_Math" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pUY-ct-6BH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

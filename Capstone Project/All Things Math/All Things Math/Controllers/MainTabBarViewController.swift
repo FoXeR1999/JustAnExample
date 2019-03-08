@@ -1,14 +1,14 @@
 //
-//  DetailViewController.swift
+//  MainTabBarViewController.swift
 //  All Things Math
 //
-//  Created by Justin Herzog on 2/4/19.
+//  Created by Justin Herzog on 3/8/19.
 //  Copyright © 2019 Justin Herzog. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

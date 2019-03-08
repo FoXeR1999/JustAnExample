@@ -10,11 +10,18 @@ import UIKit
 
 class BroadScopeSubjectTableViewController: UITableViewController {
     
-    let subjectsStruct = Subjects()
+    var subjectsStruct = Subjects()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        subjectsStruct.setUpSubjects()
+        subjectsStruct.setUpSubjects { (algebraArray, arithmeticArray, calculusArray, geometryArray, trigonometryArray, statsArray) in
+            self.subjectsStruct.subjects["Algebra"] = algebraArray
+            self.subjectsStruct.subjects["Arithmetic"] = arithmeticArray
+            self.subjectsStruct.subjects["Calculus"] = calculusArray
+            self.subjectsStruct.subjects["Geometry"] = geometryArray
+            self.subjectsStruct.subjects["Trigonometry"] = trigonometryArray
+            self.subjectsStruct.subjects["Statistics and Probability"] = statsArray
+        }
     }
     
     
@@ -23,7 +30,6 @@ class BroadScopeSubjectTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return subjectsStruct.subjects.keys.count
-//        return 0
     }
     
     
@@ -77,21 +83,22 @@ class BroadScopeSubjectTableViewController: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        guard let narrowScopeTableView = segue.destination as? NarrowScopeSubjectTableViewController else { return }
-//
-//        let sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted()
-//
-//        if let indexPath = tableView.indexPathForSelectedRow,
-//            segue.identifier == "toNarrowScopeTableView" {
-//
-//            guard let unwrappedSubject = subjectsStruct.subjects[sortedSubjectDictionary[indexPath.row]] else { return }
-//
-//            narrowScopeTableView.secondarySubjects = unwrappedSubject.sorted()
-//
-//        }
-//
-//    }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let narrowScopeTVC = segue.destination as? NarrowScopeSubjectTableViewController else { return }
+        
+        if let indexPath = tableView.indexPathForSelectedRow,
+            segue.identifier == "toNarrowScopeTableView" {
+            
+            let sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted()
+            
+            let cellTappedName = sortedSubjectDictionary[indexPath.row]
+            
+            guard let unwrappedSecondarySubjects = subjectsStruct.subjects[cellTappedName] else {
+                print("KUSO YARO")
+                return
+            }
+            narrowScopeTVC.secondarySubjects = unwrappedSecondarySubjects
+        }
+    }
 }

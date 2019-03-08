@@ -15,16 +15,16 @@
 		38306A3A220C84950067C983 /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A39220C84950067C983 /* Vocabulary.swift */; };
 		38306A3C220C84E50067C983 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A3B220C84E50067C983 /* Logic.swift */; };
 		38306A3E220C85090067C983 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A3D220C85090067C983 /* Trick.swift */; };
+		383A26222232BE2E0064A9A3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383A26212232BE2E0064A9A3 /* MainTabBarViewController.swift */; };
+		383A26242232C8040064A9A3 /* AllThingsMath.json in Resources */ = {isa = PBXBuildFile; fileRef = 383A26232232C8040064A9A3 /* AllThingsMath.json */; };
 		38D55DE5220889B8007C85E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55DE4220889B8007C85E2 /* AppDelegate.swift */; };
 		38D55DEA220889B8007C85E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38D55DE8220889B8007C85E2 /* Main.storyboard */; };
 		38D55DEC220889B9007C85E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D55DEB220889B9007C85E2 /* Assets.xcassets */; };
 		38D55DEF220889B9007C85E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38D55DED220889B9007C85E2 /* LaunchScreen.storyboard */; };
-		38D55DF722088B58007C85E2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55DF622088B58007C85E2 /* DetailViewController.swift */; };
 		38D55E0022088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55DFF22088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift */; };
 		38D55E0222088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55E0122088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift */; };
 		38D55E0C22089FB0007C85E2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55E0B22089FB0007C85E2 /* Subject.swift */; };
 		38DF2EE3221F09DA00B4F563 /* SecondarySubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF2EE2221F09DA00B4F563 /* SecondarySubjectController.swift */; };
-		38DF2EE7221F110100B4F563 /* AllThingsMath.json in Resources */ = {isa = PBXBuildFile; fileRef = 38DF2EE6221F110100B4F563 /* AllThingsMath.json */; };
 		38E15A52222D86D50067B7BF /* FormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E15A51222D86D50067B7BF /* FormulaViewController.swift */; };
 		38E15A54222D87000067B7BF /* ProofViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E15A53222D87000067B7BF /* ProofViewController.swift */; };
 		38E15A58222D874B0067B7BF /* RelatedFormulasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E15A57222D874B0067B7BF /* RelatedFormulasTableViewController.swift */; };
@@ -46,19 +46,19 @@
 		38306A39220C84950067C983 /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
 		38306A3B220C84E50067C983 /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		38306A3D220C85090067C983 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
+		383A26212232BE2E0064A9A3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		383A26232232C8040064A9A3 /* AllThingsMath.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AllThingsMath.json; path = ../../../../../../Desktop/AllThingsMath/AllThingsMath.json; sourceTree = "<group>"; };
 		38D55DE1220889B8007C85E2 /* All Things Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All Things Math.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D55DE4220889B8007C85E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38D55DE9220889B8007C85E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38D55DEB220889B9007C85E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38D55DEE220889B9007C85E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38D55DF0220889B9007C85E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38D55DF622088B58007C85E2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		38D55DFF22088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadScopeSubjectTableViewController.swift; sourceTree = "<group>"; };
 		38D55E0122088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarrowScopeSubjectTableViewController.swift; sourceTree = "<group>"; };
 		38D55E0B22089FB0007C85E2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		38DF2EE2221F09DA00B4F563 /* SecondarySubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondarySubjectController.swift; sourceTree = "<group>"; };
-		38DF2EE6221F110100B4F563 /* AllThingsMath.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AllThingsMath.json; path = ../../../../../../Desktop/AllThingsMath.json; sourceTree = "<group>"; };
-		38E15A51222D86D50067B7BF /* FormulaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormulaViewController.swift; path = "All Things Math/Controllers/FormulaViewController.swift"; sourceTree = SOURCE_ROOT; };
+		38E15A51222D86D50067B7BF /* FormulaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormulaViewController.swift; path = "All Things Math/Controllers/relationsToTabBar/FormulaViewController.swift"; sourceTree = SOURCE_ROOT; };
 		38E15A53222D87000067B7BF /* ProofViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofViewController.swift; sourceTree = "<group>"; };
 		38E15A57222D874B0067B7BF /* RelatedFormulasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedFormulasTableViewController.swift; sourceTree = "<group>"; };
 		38E15A59222D875C0067B7BF /* VocabularyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyTableViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +82,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		383A261E2232BD960064A9A3 /* relationsToTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				38E15A51222D86D50067B7BF /* FormulaViewController.swift */,
+				38E15A53222D87000067B7BF /* ProofViewController.swift */,
+				38E15A5F222D90E70067B7BF /* ExampleProblemsTableViewController.swift */,
+				38E15A61222D910B0067B7BF /* ExampleProblemDetailViewController.swift */,
+				38E15A57222D874B0067B7BF /* RelatedFormulasTableViewController.swift */,
+				38E15A59222D875C0067B7BF /* VocabularyTableViewController.swift */,
+				38E15A5B222D87690067B7BF /* LogicTableViewController.swift */,
+				38E15A5D222D87750067B7BF /* TrickTableViewController.swift */,
+			);
+			path = relationsToTabBar;
+			sourceTree = "<group>";
+		};
 		38D55DD8220889B8007C85E2 = {
 			isa = PBXGroup;
 			children = (
@@ -118,16 +133,9 @@
 			children = (
 				38D55DFF22088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift */,
 				38D55E0122088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift */,
-				38D55DF622088B58007C85E2 /* DetailViewController.swift */,
+				383A26212232BE2E0064A9A3 /* MainTabBarViewController.swift */,
+				383A261E2232BD960064A9A3 /* relationsToTabBar */,
 				38DF2EE2221F09DA00B4F563 /* SecondarySubjectController.swift */,
-				38E15A51222D86D50067B7BF /* FormulaViewController.swift */,
-				38E15A53222D87000067B7BF /* ProofViewController.swift */,
-				38E15A5F222D90E70067B7BF /* ExampleProblemsTableViewController.swift */,
-				38E15A61222D910B0067B7BF /* ExampleProblemDetailViewController.swift */,
-				38E15A57222D874B0067B7BF /* RelatedFormulasTableViewController.swift */,
-				38E15A59222D875C0067B7BF /* VocabularyTableViewController.swift */,
-				38E15A5B222D87690067B7BF /* LogicTableViewController.swift */,
-				38E15A5D222D87750067B7BF /* TrickTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,7 +143,7 @@
 		38D55DF922088B75007C85E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				38DF2EE6221F110100B4F563 /* AllThingsMath.json */,
+				383A26232232C8040064A9A3 /* AllThingsMath.json */,
 				38306A2F220C7BBE0067C983 /* SecondarySubject.swift */,
 				38306A31220C83130067C983 /* Formula.swift */,
 				38306A33220C83C90067C983 /* Proof.swift */,
@@ -237,7 +245,7 @@
 			files = (
 				38D55DEF220889B9007C85E2 /* LaunchScreen.storyboard in Resources */,
 				38D55DEC220889B9007C85E2 /* Assets.xcassets in Resources */,
-				38DF2EE7221F110100B4F563 /* AllThingsMath.json in Resources */,
+				383A26242232C8040064A9A3 /* AllThingsMath.json in Resources */,
 				38D55DEA220889B8007C85E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +307,7 @@
 				38306A36220C84070067C983 /* ExampleProblem.swift in Sources */,
 				38D55E0C22089FB0007C85E2 /* Subject.swift in Sources */,
 				38E15A5C222D87690067B7BF /* LogicTableViewController.swift in Sources */,
+				383A26222232BE2E0064A9A3 /* MainTabBarViewController.swift in Sources */,
 				38DF2EE3221F09DA00B4F563 /* SecondarySubjectController.swift in Sources */,
 				38E15A62222D910B0067B7BF /* ExampleProblemDetailViewController.swift in Sources */,
 				38E15A5E222D87750067B7BF /* TrickTableViewController.swift in Sources */,
@@ -315,7 +324,6 @@
 				38D55DE5220889B8007C85E2 /* AppDelegate.swift in Sources */,
 				38306A34220C83C90067C983 /* Proof.swift in Sources */,
 				38306A30220C7BBE0067C983 /* SecondarySubject.swift in Sources */,
-				38D55DF722088B58007C85E2 /* DetailViewController.swift in Sources */,
 				38E15A58222D874B0067B7BF /* RelatedFormulasTableViewController.swift in Sources */,
 				38D55E0022088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift in Sources */,
 			);

@@ -10,14 +10,24 @@ import UIKit
 
 class ProofViewController: UIViewController {
 
+    var proofName: String = ""
+    var proofImageName: String = ""
+    var proofDescription: String = ""
+    
     @IBOutlet weak var proofNameLabel: UILabel!
     @IBOutlet weak var proofImage: UIImageView!
     @IBOutlet weak var proofDescriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if proofImageName != "" {
+            proofImage.image = UIImage(named: proofImageName)
+        } else {
+            proofImage.isHidden = true
+        }
+        proofNameLabel.text = proofName
+        proofDescriptionLabel.text = proofDescription
     }
     
 

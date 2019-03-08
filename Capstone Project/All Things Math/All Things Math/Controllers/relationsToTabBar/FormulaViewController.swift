@@ -10,16 +10,23 @@ import UIKit
 
 class FormulaViewController: UIViewController {
 
+    var formulaName: String = ""
+    var actualFormula: String = ""
+    var variableExplanation: String = ""
+    var variableDescription: String = ""
+    
     @IBOutlet weak var formulaNameLabel: UILabel!
     @IBOutlet weak var actualFormulaLabel: UILabel!
     @IBOutlet weak var variableExplanationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        formulaNameLabel.text = formulaName
+        actualFormulaLabel.text = actualFormula
+        variableExplanationLabel.text = variableExplanation
+        descriptionLabel.text = variableDescription
     }
     
 
