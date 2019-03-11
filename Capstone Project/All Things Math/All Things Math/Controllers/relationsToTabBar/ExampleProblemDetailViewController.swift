@@ -13,6 +13,7 @@ class ExampleProblemDetailViewController: UIViewController {
     var exampleProblemName: String = ""
     var exampleProblemImageIdentifier: String = ""
     var steps: [Any] = []
+    var stepString: Any = ""
     
     @IBOutlet weak var exampleProblemNameLabel: UILabel!
     @IBOutlet weak var stepsLabel: UILabel!
@@ -31,12 +32,23 @@ class ExampleProblemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if exampleProblemImageIdentifier != "" {
+            exampleProblemImage.image = UIImage(named: exampleProblemImageIdentifier)
+            exampleProblemImage.frame = CGRect(x: 0, y: 0, width: 359, height: 359)
+        } else {
+            exampleProblemImage.isHidden = true
+            exampleProblemImage.frame = CGRect(x: 0, y: 0, width: 359, height: 0)
+            
+        }
         stepsLabel.isHidden = true
         
         exampleProblemNameLabel.text = exampleProblemName
         exampleProblemImage.image = UIImage(named: exampleProblemImageIdentifier)
-        print(steps.count)
-        stepsLabel.text = ("\(steps[0])\n\(steps[1])\n\(steps[2])")
+        
+        for step in steps {
+            stepString = "\(stepString) \(step)\n"
+        }
+        stepsLabel.text = stepString as? String  // I need to find out how to do this with the amount of steps in the array without a giant if statement
         
     }
     

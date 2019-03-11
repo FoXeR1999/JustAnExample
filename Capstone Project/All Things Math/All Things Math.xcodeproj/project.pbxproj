@@ -17,6 +17,7 @@
 		38306A3E220C85090067C983 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A3D220C85090067C983 /* Trick.swift */; };
 		383A26222232BE2E0064A9A3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383A26212232BE2E0064A9A3 /* MainTabBarViewController.swift */; };
 		383A26242232C8040064A9A3 /* AllThingsMath.json in Resources */ = {isa = PBXBuildFile; fileRef = 383A26232232C8040064A9A3 /* AllThingsMath.json */; };
+		38518BB32236B420009B655E /* VocabularyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38518BB22236B420009B655E /* VocabularyTableViewCell.swift */; };
 		38D55DE5220889B8007C85E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D55DE4220889B8007C85E2 /* AppDelegate.swift */; };
 		38D55DEA220889B8007C85E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38D55DE8220889B8007C85E2 /* Main.storyboard */; };
 		38D55DEC220889B9007C85E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D55DEB220889B9007C85E2 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		38306A3D220C85090067C983 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
 		383A26212232BE2E0064A9A3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		383A26232232C8040064A9A3 /* AllThingsMath.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AllThingsMath.json; path = ../../../../../../Desktop/AllThingsMath/AllThingsMath.json; sourceTree = "<group>"; };
+		38518BB22236B420009B655E /* VocabularyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyTableViewCell.swift; sourceTree = "<group>"; };
 		38D55DE1220889B8007C85E2 /* All Things Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All Things Math.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D55DE4220889B8007C85E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38D55DE9220889B8007C85E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				38E15A61222D910B0067B7BF /* ExampleProblemDetailViewController.swift */,
 				38E15A57222D874B0067B7BF /* RelatedFormulasTableViewController.swift */,
 				38E15A59222D875C0067B7BF /* VocabularyTableViewController.swift */,
+				38518BB22236B420009B655E /* VocabularyTableViewCell.swift */,
 				38E15A5B222D87690067B7BF /* LogicTableViewController.swift */,
 				38E15A5D222D87750067B7BF /* TrickTableViewController.swift */,
 			);
@@ -316,6 +319,7 @@
 				38306A32220C83130067C983 /* Formula.swift in Sources */,
 				38E15A52222D86D50067B7BF /* FormulaViewController.swift in Sources */,
 				38D55E0222088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift in Sources */,
+				38518BB32236B420009B655E /* VocabularyTableViewCell.swift in Sources */,
 				38E15A60222D90E70067B7BF /* ExampleProblemsTableViewController.swift in Sources */,
 				38306A3C220C84E50067C983 /* Logic.swift in Sources */,
 				38306A38220C84480067C983 /* RelatedFormula.swift in Sources */,

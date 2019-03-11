@@ -23,8 +23,11 @@ class ProofViewController: UIViewController {
         
         if proofImageName != "" {
             proofImage.image = UIImage(named: proofImageName)
+            proofImage.frame = CGRect(x: 0, y: 0, width: 359, height: 359)
         } else {
             proofImage.isHidden = true
+            proofImage.frame = CGRect(x: 0, y: 0, width: 359, height: 0)
+
         }
         proofNameLabel.text = proofName
         proofDescriptionLabel.text = proofDescription

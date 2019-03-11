@@ -78,6 +78,10 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
         guard let formulaController = tabBarSubcontrollers[0] as? FormulaViewController else { return }
         guard let proofController = tabBarSubcontrollers[1] as? ProofViewController else { return }
         guard let exampleProblemController = tabBarSubcontrollers[2] as? ExampleProblemsTableViewController else { return }
+        guard let relatedFormulaController = tabBarSubcontrollers[3] as? RelatedFormulasTableViewController else { return }
+        guard let vocabularyController = tabBarSubcontrollers[4] as? VocabularyTableViewController else { return }
+        guard let logicController = tabBarSubcontrollers[5] as? LogicTableViewController else { return }
+        guard let trickController = tabBarSubcontrollers[6] as? TrickTableViewController else { return }
         
         if let indexPath = tableView.indexPathForSelectedRow,
             segue.identifier == "toTabBarController" {
@@ -117,6 +121,22 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
                     exampleProblemController.stepsArray.append(unwrappedStepsArray)
                 }
             }
+            // Related Formulas Controller
+            if !secondarySubjects[indexPath.row].relatedFormulas.isEmpty { // If related Formulas isn't empty
+                relatedFormulaController.numberOfRows = secondarySubjects[indexPath.row].relatedFormulas.count
+                
+                for relatedFormula in secondarySubjects[indexPath.row].relatedFormulas {
+                    guard let unwrappedFormulaName = relatedFormula?.formulaName else { return }
+                    guard let unwrappedFormulaDescription = relatedFormula?.description else { return }
+                    relatedFormulaController.relatedFormulas.append(RelatedFormulas(formulaName: unwrappedFormulaName, description: unwrappedFormulaDescription))
+                }
+            }
+            // Vocabulary Controller
+            guard let numberOfRows = secondarySubjects[indexPath.row].vocabulary?.vocabulary.count else { return }
+            vocabularyController.numberOfRows = numberOfRows
+            
+            guard let unwrappedVocabulary = secondarySubjects[indexPath.row].vocabulary?.vocabulary else { return }
+            vocabularyController.vocabulary = unwrappedVocabulary
         }
     }
 }

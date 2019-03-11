@@ -19,17 +19,18 @@ class ExampleProblemsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        for array in stepsArray {
+            var counter: Int = 0
+            if array.isEmpty {
+                stepsArray.remove(at: counter)
+            }
+            counter += 1
+        }
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return numberOfRows
     }
     
@@ -91,7 +92,7 @@ class ExampleProblemsTableViewController: UITableViewController {
             
             exampleDetailVC.exampleProblemName = namesArray[indexPath.row]
             exampleDetailVC.exampleProblemImageIdentifier = imageArray[indexPath.row]
-            exampleDetailVC.steps = stepsArray[indexPath.row + 1]
+            exampleDetailVC.steps = stepsArray[indexPath.row]
         }
      }
 }
