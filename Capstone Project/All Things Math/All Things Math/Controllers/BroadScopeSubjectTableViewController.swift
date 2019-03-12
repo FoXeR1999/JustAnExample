@@ -8,12 +8,19 @@
 
 import UIKit
 
-class BroadScopeSubjectTableViewController: UITableViewController {
+class BroadScopeSubjectTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var broadScopeSearchBar: UISearchBar!
+    var searchActive: Bool = false
+    var searchTerms: [String] = []
+    var filtered: [String] = []
     
     var subjectsStruct = Subjects()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        broadScopeSearchBar.delegate = self
+        
         subjectsStruct.setUpSubjects { (algebraArray, arithmeticArray, calculusArray, geometryArray, trigonometryArray, statsArray) in
             self.subjectsStruct.subjects["Algebra"] = algebraArray
             self.subjectsStruct.subjects["Arithmetic"] = arithmeticArray
@@ -22,12 +29,42 @@ class BroadScopeSubjectTableViewController: UITableViewController {
             self.subjectsStruct.subjects["Trigonometry"] = trigonometryArray
             self.subjectsStruct.subjects["Statistics and Probability"] = statsArray
         }
+        
+        // SETUP SEARCH TERMS
+        guard let algebraSecondarySubjects = subjectsStruct.subjects["Algebra"],
+            let arithmeticSecondarySubjects = subjectsStruct.subjects["Arithmetic"],
+            let calculusSecondarySubjects = subjectsStruct.subjects["Calculus"],
+            let geometrySecondarySubjects = subjectsStruct.subjects["Geometry"],
+            let trigonometrySecondarySubjects = subjectsStruct.subjects["Trigonometry"],
+            let statsSecondarySubjects = subjectsStruct.subjects["Statistics and Probability"] else { return }
+        for subject in algebraSecondarySubjects {
+            searchTerms.append(subject.name)
+        }
+        for subject in arithmeticSecondarySubjects {
+            searchTerms.append(subject.name)
+        }
+        for subject in calculusSecondarySubjects {
+            searchTerms.append(subject.name)
+        }
+        for subject in geometrySecondarySubjects {
+            searchTerms.append(subject.name)
+        }
+        for subject in trigonometrySecondarySubjects {
+            searchTerms.append(subject.name)
+        }
+        for subject in statsSecondarySubjects {
+            searchTerms.append(subject.name)
+        }
     }
     
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if(searchActive) {
+            return filtered.count
+        }
         
         return subjectsStruct.subjects.keys.count
     }
@@ -36,49 +73,46 @@ class BroadScopeSubjectTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell", for: indexPath)
         
-        let sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted() // Alphabatized subjects
-        
-        cell.textLabel?.text = sortedSubjectDictionary[indexPath.row]
-        
+        if(searchActive){
+            cell.textLabel?.text = filtered[indexPath.row]
+        } else {
+            let sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted() // Alphabatized subjects
+            
+            cell.textLabel?.text = sortedSubjectDictionary[indexPath.row]
+        }
         return cell
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+    }
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filtered = searchTerms.filter({ (text) -> Bool in
+            let tmp: NSString = text as NSString
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            return range.location != NSNotFound
+        })
+        if(filtered.count == 0) {
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        self.tableView.reloadData()
+    }
     
     // MARK: - Navigation
     

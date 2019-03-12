@@ -51,6 +51,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Hu7-oJ-ept"/>
+                    <connections>
+                        <outlet property="broadScopeSearchBar" destination="a2h-hO-ONy" id="Jq4-r5-vLl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dON-Q7-HqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,13 +220,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VB0-VY-A62">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trickCellIdentifier" id="VB0-VY-A62">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VB0-VY-A62" id="82T-Z2-bp2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="HSr-rD-fL3" kind="show" identifier="toTrickDetailView" id="HlS-eL-IsK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -238,6 +244,72 @@
             </objects>
             <point key="canvasLocation" x="5591" y="-199"/>
         </scene>
+        <!--Trick Detail View Controller-->
+        <scene sceneID="M2C-bA-zTQ">
+            <objects>
+                <viewController id="HSr-rD-fL3" customClass="TrickDetailViewController" customModule="All_Things_Math" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hoj-hn-8Zm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQU-FO-CrT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-dg-eSc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trick Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUP-bY-ows">
+                                                <rect key="frame" x="16" y="8" width="343" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actual Trick" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVS-wR-VWw">
+                                                <rect key="frame" x="16" y="47.5" width="343" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OVS-wR-VWw" secondAttribute="trailing" constant="16" id="Owm-nR-iCr"/>
+                                            <constraint firstItem="OVS-wR-VWw" firstAttribute="leading" secondItem="NXm-dg-eSc" secondAttribute="leading" constant="16" id="TWF-Rt-ucj"/>
+                                            <constraint firstItem="OVS-wR-VWw" firstAttribute="top" secondItem="SUP-bY-ows" secondAttribute="bottom" constant="8" id="U1M-4w-aF0"/>
+                                            <constraint firstAttribute="trailing" secondItem="SUP-bY-ows" secondAttribute="trailing" constant="16" id="aN9-ED-KzU"/>
+                                            <constraint firstItem="SUP-bY-ows" firstAttribute="top" secondItem="NXm-dg-eSc" secondAttribute="top" constant="8" id="wE2-ka-ai0"/>
+                                            <constraint firstItem="SUP-bY-ows" firstAttribute="leading" secondItem="NXm-dg-eSc" secondAttribute="leading" constant="16" id="wZl-Fp-sZa"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NXm-dg-eSc" firstAttribute="leading" secondItem="uQU-FO-CrT" secondAttribute="leading" id="8Or-yB-eDq"/>
+                                    <constraint firstItem="NXm-dg-eSc" firstAttribute="top" secondItem="uQU-FO-CrT" secondAttribute="top" id="AUB-WU-OPb"/>
+                                    <constraint firstAttribute="trailing" secondItem="NXm-dg-eSc" secondAttribute="trailing" id="d4d-Zt-do6"/>
+                                    <constraint firstAttribute="bottom" secondItem="NXm-dg-eSc" secondAttribute="bottom" id="jax-NV-znK"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uQU-FO-CrT" firstAttribute="top" secondItem="RtN-89-4em" secondAttribute="top" id="8UH-82-Xsf"/>
+                            <constraint firstItem="uQU-FO-CrT" firstAttribute="leading" secondItem="RtN-89-4em" secondAttribute="leading" id="CQf-Av-DTJ"/>
+                            <constraint firstItem="NXm-dg-eSc" firstAttribute="height" secondItem="Hoj-hn-8Zm" secondAttribute="height" id="M4u-e8-1Nd"/>
+                            <constraint firstItem="RtN-89-4em" firstAttribute="trailing" secondItem="uQU-FO-CrT" secondAttribute="trailing" id="Qsr-kU-ugq"/>
+                            <constraint firstItem="NXm-dg-eSc" firstAttribute="width" secondItem="Hoj-hn-8Zm" secondAttribute="width" id="lrO-tR-kVr"/>
+                            <constraint firstItem="RtN-89-4em" firstAttribute="bottom" secondItem="uQU-FO-CrT" secondAttribute="bottom" id="wTd-vN-dCP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RtN-89-4em"/>
+                    </view>
+                    <connections>
+                        <outlet property="actualTrickLabel" destination="OVS-wR-VWw" id="LrL-LM-usY"/>
+                        <outlet property="trickNameLabel" destination="SUP-bY-ows" id="zbG-Sh-00x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRi-BN-vQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6375" y="-198"/>
+        </scene>
         <!--Logic-->
         <scene sceneID="3Mg-tO-ZMW">
             <objects>
@@ -247,13 +319,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tT2-V4-Vdw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logicCell" id="tT2-V4-Vdw" customClass="LogicCellTableViewCell" customModule="All_Things_Math" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tT2-V4-Vdw" id="v77-IW-7Ro">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logic" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liG-DP-fni">
+                                            <rect key="frame" x="32" y="19" width="311" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="liG-DP-fni" secondAttribute="trailing" constant="16" id="Sjx-CD-fVl"/>
+                                        <constraint firstItem="liG-DP-fni" firstAttribute="leading" secondItem="v77-IW-7Ro" secondAttribute="leadingMargin" constant="16" id="aGv-9h-N9E"/>
+                                        <constraint firstItem="liG-DP-fni" firstAttribute="top" secondItem="v77-IW-7Ro" secondAttribute="topMargin" constant="8" id="zpS-SN-T1G"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="logicLabel" destination="liG-DP-fni" id="8Pw-eB-CPh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

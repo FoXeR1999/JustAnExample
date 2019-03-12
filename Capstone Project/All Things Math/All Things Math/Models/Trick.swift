@@ -9,5 +9,6 @@
 import Foundation
 
 struct Trick {
-    let tricks: [String]
+    let trickName: String
+    let actualTrick: String
 }

@@ -132,11 +132,30 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
                 }
             }
             // Vocabulary Controller
-            guard let numberOfRows = secondarySubjects[indexPath.row].vocabulary?.vocabulary.count else { return }
-            vocabularyController.numberOfRows = numberOfRows
+            guard let vocabNumberOfRows = secondarySubjects[indexPath.row].vocabulary?.vocabulary.count else { return }
+            vocabularyController.numberOfRows = vocabNumberOfRows
             
             guard let unwrappedVocabulary = secondarySubjects[indexPath.row].vocabulary?.vocabulary else { return }
             vocabularyController.vocabulary = unwrappedVocabulary
+            
+            // Logic Controller
+            guard let logicNumberOfRows = secondarySubjects[indexPath.row].logic?.logic.count else { return }
+            logicController.numberOfRows = logicNumberOfRows
+            
+            guard let unwrappedLogic = secondarySubjects[indexPath.row].logic?.logic else { return }
+            logicController.logic = unwrappedLogic
+            
+            // Trick Controller
+            if !secondarySubjects[indexPath.row].tricks.isEmpty { // If tricks isn't empty
+                trickController.numberOfRows = secondarySubjects[indexPath.row].tricks.count
+                
+                for trick in secondarySubjects[indexPath.row].tricks {
+                    guard let unwrappedTrickName = trick?.trickName else { return }
+                    trickController.trickName.append(unwrappedTrickName)
+                    guard let unwrappedActualTrick = trick?.actualTrick else { return }
+                    trickController.actualTricks.append(unwrappedActualTrick)
+                }
+            }
         }
     }
 }

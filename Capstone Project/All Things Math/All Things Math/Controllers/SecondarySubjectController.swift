@@ -69,6 +69,35 @@ struct serializeJSONStruct {
                     }
                 }
                 
+                // SETUP TRICKS \\
+                var tricksArray = [Trick]()
+                
+                if unwrappedSecondarySubject.keys.contains("tricks") {
+                    guard let unwrappedTricks = unwrappedSecondarySubject["tricks"] as? [[String: String]] else {
+                        print("Failed to unwrap tricks")
+                        return
+                    }
+                    
+                    for trick in unwrappedTricks {
+                        var outsideTrickName: String = ""
+                        var outsideActualTrick: String = ""
+                        
+                        if trick.keys.contains("trickName") {
+                            guard let unwrappedTrickName = trick["trickName"] else { return }
+                            outsideTrickName = unwrappedTrickName
+                        }
+                        if trick.keys.contains("actualTrick") {
+                            guard let unwrappedActualTrick = trick["actualTrick"] else { return }
+                            outsideActualTrick = unwrappedActualTrick
+                        }
+                        let newTrick = Trick(
+                            trickName: outsideTrickName,
+                            actualTrick: outsideActualTrick
+                        )
+                        tricksArray.append(newTrick)
+                    }
+                }
+                
                 // SETUP RELATED FORMULAS \\
                 var relatedFormulasArray = [RelatedFormulas]()
                 
@@ -165,17 +194,6 @@ struct serializeJSONStruct {
                     }
                     outsideInsideLogic = unwrappedInsideLogic
                 }
-                // TRICKS \\
-                var outsideTricks: [String] = []
-                
-                if unwrappedSecondarySubject.keys.contains("trick") {
-                    guard let unwrappedTrick = unwrappedSecondarySubject["trick"] as? Dictionary<String, [String]>,
-                        let unwrappedTricks = unwrappedTrick["tricks"] else {
-                            print("Failed to get trick")
-                            return
-                    }
-                    outsideTricks = unwrappedTricks
-                }
                 ///////////////////////////////////////////////////////////////////////////////////////
                 
                 let newSecondarySubject = SecondarySubject(
@@ -200,9 +218,7 @@ struct serializeJSONStruct {
                     logic : Logic(
                         logic : outsideInsideLogic
                     ),
-                    tricks : Trick(
-                        tricks : outsideTricks
-                    )
+                    tricks : tricksArray
                 )
                 returnedSecondarySubjectArray.append(newSecondarySubject)
                 
