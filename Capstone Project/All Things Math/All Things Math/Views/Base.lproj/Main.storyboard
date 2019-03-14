@@ -466,7 +466,7 @@
                         <outlet property="actualFormulaLabel" destination="WN2-xU-4Kd" id="p22-Yv-95v"/>
                         <outlet property="descriptionLabel" destination="Og2-zp-aE7" id="hKO-Ds-TTf"/>
                         <outlet property="formulaNameLabel" destination="wsq-ad-xyt" id="amn-tx-a2s"/>
-                        <outlet property="scrollView" destination="0ld-WS-Mif" id="A6Z-Cm-mNS"/>
+                        <outlet property="scrollView" destination="0ld-WS-Mif" id="2uz-fq-RvZ"/>
                         <outlet property="variableExplanationLabel" destination="TUx-pG-LcZ" id="yEv-er-TaJ"/>
                     </connections>
                 </viewController>
