@@ -18,5 +18,5 @@ struct SecondarySubject {
     let relatedFormulas: [RelatedFormulas?] // Just a list of related formulas or tricks that will help you do the problem
     let vocabulary: Vocabulary? // Vocabulary of the math terminology used in the problem
     let logic: Logic? // Some math requires pure logic, really no formula... Put that here
-    let tricks: Trick? // Cool and helpful tricks that will come in handy when doing the problems
+    let tricks: [Trick?] // Cool and helpful tricks that will come in handy when doing the problems
 }

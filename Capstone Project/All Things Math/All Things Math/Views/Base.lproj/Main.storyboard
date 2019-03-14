@@ -466,6 +466,7 @@
                         <outlet property="actualFormulaLabel" destination="WN2-xU-4Kd" id="p22-Yv-95v"/>
                         <outlet property="descriptionLabel" destination="Og2-zp-aE7" id="hKO-Ds-TTf"/>
                         <outlet property="formulaNameLabel" destination="wsq-ad-xyt" id="amn-tx-a2s"/>
+                        <outlet property="scrollView" destination="0ld-WS-Mif" id="A6Z-Cm-mNS"/>
                         <outlet property="variableExplanationLabel" destination="TUx-pG-LcZ" id="yEv-er-TaJ"/>
                     </connections>
                 </viewController>
@@ -476,6 +477,7 @@
         <!--Example Problem Detail View Controller-->
         <scene sceneID="u2T-AY-Cn8">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yp-6g-Fji" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4Wh-6k-vdA" customClass="ExampleProblemDetailViewController" customModule="All_Things_Math" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0dx-3j-Elt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -553,7 +555,6 @@
                         <outlet property="stepsLabel" destination="cAQ-N5-ztq" id="7NZ-U2-cVp"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yp-6g-Fji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4062" y="-876"/>
         </scene>
