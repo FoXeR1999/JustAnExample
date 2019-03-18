@@ -72,89 +72,96 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let tabBarController = segue.destination as? MainTabBarViewController else { return }
-        guard let tabBarSubcontrollers = tabBarController.viewControllers else { return } // 0: Formula, 1: Proof, 2: ExampleP, 3: RelatedFor, 4: Vocab, 5: Logic, 6: Trick
-        guard let formulaController = tabBarSubcontrollers[0] as? FormulaViewController else { return }
-        guard let proofController = tabBarSubcontrollers[1] as? ProofViewController else { return }
-        guard let exampleProblemController = tabBarSubcontrollers[2] as? ExampleProblemsTableViewController else { return }
-        guard let relatedFormulaController = tabBarSubcontrollers[3] as? RelatedFormulasTableViewController else { return }
-        guard let vocabularyController = tabBarSubcontrollers[4] as? VocabularyTableViewController else { return }
-        guard let logicController = tabBarSubcontrollers[5] as? LogicTableViewController else { return }
-        guard let trickController = tabBarSubcontrollers[6] as? TrickTableViewController else { return }
+        guard let formulaController = segue.destination as? FormulaViewController else { return }
+        // For version 2 switch segue.destination to MainTabBarController and uncomment any comments
+//        guard let tabBarSubcontrollers = tabBarController.viewControllers else { return } // 0: Formula, 1: Proof, 2: ExampleP, 3: RelatedFor, 4: Vocab, 5: Logic, 6: Trick
+//        guard let formulaController = tabBarSubcontrollers[0] as? FormulaViewController else { return }
+//        guard let proofController = tabBarSubcontrollers[1] as? ProofViewController else { return }
+//        guard let exampleProblemController = tabBarSubcontrollers[2] as? ExampleProblemsTableViewController else { return }
+//        guard let relatedFormulaController = tabBarSubcontrollers[3] as? RelatedFormulasTableViewController else { return }
+//        guard let vocabularyController = tabBarSubcontrollers[4] as? VocabularyTableViewController else { return }
+//        guard let logicController = tabBarSubcontrollers[5] as? LogicTableViewController else { return }
+//        guard let trickController = tabBarSubcontrollers[6] as? TrickTableViewController else { return }
         
         if let indexPath = tableView.indexPathForSelectedRow,
-            segue.identifier == "toTabBarController" {
-            
-            // Formula Controller
-            guard let unwrappedActualFormula = secondarySubjects[indexPath.row].formula.actualFormula as? String else { return }
+            segue.identifier == "toFormulaController" {
+            guard let unwrappedActualFromula = secondarySubjects[indexPath.row].formula.actualFormula as? String else { return }
             
             formulaController.formulaName = secondarySubjects[indexPath.row].formula.formulaName
-            formulaController.actualFormula = unwrappedActualFormula
+            formulaController.actualFormula = unwrappedActualFromula
             formulaController.variableExplanation = secondarySubjects[indexPath.row].formula.variableExplanation
             formulaController.variableDescription = secondarySubjects[indexPath.row].formula.description
-            
-            // Proof Controller
-            if secondarySubjects[indexPath.row].proof?.proofName != "" { // If it is something
-                guard let unwrappedProofName = secondarySubjects[indexPath.row].proof?.proofName else { return }
-                proofController.proofName = unwrappedProofName
-            }
-            if secondarySubjects[indexPath.row].proof?.proofImage != "" {
-                guard let unwrappedProofImage = secondarySubjects[indexPath.row].proof?.proofImage else { return }
-                proofController.proofImageName = unwrappedProofImage
-            }
-            if secondarySubjects[indexPath.row].proof?.proofDescription != "" {
-                guard let unwrappedProofDescription = secondarySubjects[indexPath.row].proof?.proofDescription else { return }
-                proofController.proofDescription = unwrappedProofDescription
-            }
-            
-            // Example Problem Controller
-            if !secondarySubjects[indexPath.row].exampleProblems.isEmpty { // If it isn't empty
-                exampleProblemController.numberOfRows = secondarySubjects[indexPath.row].exampleProblems.count
-                
-                for exampleProblem in secondarySubjects[indexPath.row].exampleProblems {
-                    guard let unwrappedExampleName = exampleProblem?.exampleProblemName as? String else { return }
-                    exampleProblemController.namesArray.append(unwrappedExampleName)
-                    guard let unwrappedExampleImage = exampleProblem?.exampleProblemImage else { return }
-                    exampleProblemController.imageArray.append(unwrappedExampleImage)
-                    guard let unwrappedStepsArray = exampleProblem?.steps else { return }
-                    exampleProblemController.stepsArray.append(unwrappedStepsArray)
-                }
-            }
-            // Related Formulas Controller
-            if !secondarySubjects[indexPath.row].relatedFormulas.isEmpty { // If related Formulas isn't empty
-                relatedFormulaController.numberOfRows = secondarySubjects[indexPath.row].relatedFormulas.count
-                
-                for relatedFormula in secondarySubjects[indexPath.row].relatedFormulas {
-                    guard let unwrappedFormulaName = relatedFormula?.formulaName else { return }
-                    guard let unwrappedFormulaDescription = relatedFormula?.description else { return }
-                    relatedFormulaController.relatedFormulas.append(RelatedFormulas(formulaName: unwrappedFormulaName, description: unwrappedFormulaDescription))
-                }
-            }
-            // Vocabulary Controller
-            guard let vocabNumberOfRows = secondarySubjects[indexPath.row].vocabulary?.vocabulary.count else { return }
-            vocabularyController.numberOfRows = vocabNumberOfRows
-            
-            guard let unwrappedVocabulary = secondarySubjects[indexPath.row].vocabulary?.vocabulary else { return }
-            vocabularyController.vocabulary = unwrappedVocabulary
-            
-            // Logic Controller
-            guard let logicNumberOfRows = secondarySubjects[indexPath.row].logic?.logic.count else { return }
-            logicController.numberOfRows = logicNumberOfRows
-            
-            guard let unwrappedLogic = secondarySubjects[indexPath.row].logic?.logic else { return }
-            logicController.logic = unwrappedLogic
-            
-            // Trick Controller
-            if !secondarySubjects[indexPath.row].tricks.isEmpty { // If tricks isn't empty
-                trickController.numberOfRows = secondarySubjects[indexPath.row].tricks.count
-                
-                for trick in secondarySubjects[indexPath.row].tricks {
-                    guard let unwrappedTrickName = trick?.trickName else { return }
-                    trickController.trickName.append(unwrappedTrickName)
-                    guard let unwrappedActualTrick = trick?.actualTrick else { return }
-                    trickController.actualTricks.append(unwrappedActualTrick)
-                }
-            }
+//
+//            // Formula Controller
+//            guard let unwrappedActualFormula = secondarySubjects[indexPath.row].formula.actualFormula as? String else { return }
+//
+//            formulaController.formulaName = secondarySubjects[indexPath.row].formula.formulaName
+//            formulaController.actualFormula = unwrappedActualFormula
+//            formulaController.variableExplanation = secondarySubjects[indexPath.row].formula.variableExplanation
+//            formulaController.variableDescription = secondarySubjects[indexPath.row].formula.description
+//
+//            // Proof Controller
+//            if secondarySubjects[indexPath.row].proof?.proofName != "" { // If it is something
+//                guard let unwrappedProofName = secondarySubjects[indexPath.row].proof?.proofName else { return }
+//                proofController.proofName = unwrappedProofName
+//            }
+//            if secondarySubjects[indexPath.row].proof?.proofImage != "" {
+//                guard let unwrappedProofImage = secondarySubjects[indexPath.row].proof?.proofImage else { return }
+//                proofController.proofImageName = unwrappedProofImage
+//            }
+//            if secondarySubjects[indexPath.row].proof?.proofDescription != "" {
+//                guard let unwrappedProofDescription = secondarySubjects[indexPath.row].proof?.proofDescription else { return }
+//                proofController.proofDescription = unwrappedProofDescription
+//            }
+//
+//            // Example Problem Controller
+//            if !secondarySubjects[indexPath.row].exampleProblems.isEmpty { // If it isn't empty
+//                exampleProblemController.numberOfRows = secondarySubjects[indexPath.row].exampleProblems.count
+//
+//                for exampleProblem in secondarySubjects[indexPath.row].exampleProblems {
+//                    guard let unwrappedExampleName = exampleProblem?.exampleProblemName as? String else { return }
+//                    exampleProblemController.namesArray.append(unwrappedExampleName)
+//                    guard let unwrappedExampleImage = exampleProblem?.exampleProblemImage else { return }
+//                    exampleProblemController.imageArray.append(unwrappedExampleImage)
+//                    guard let unwrappedStepsArray = exampleProblem?.steps else { return }
+//                    exampleProblemController.stepsArray.append(unwrappedStepsArray)
+//                }
+//            }
+//            // Related Formulas Controller
+//            if !secondarySubjects[indexPath.row].relatedFormulas.isEmpty { // If related Formulas isn't empty
+//                relatedFormulaController.numberOfRows = secondarySubjects[indexPath.row].relatedFormulas.count
+//
+//                for relatedFormula in secondarySubjects[indexPath.row].relatedFormulas {
+//                    guard let unwrappedFormulaName = relatedFormula?.formulaName else { return }
+//                    guard let unwrappedFormulaDescription = relatedFormula?.description else { return }
+//                    relatedFormulaController.relatedFormulas.append(RelatedFormulas(formulaName: unwrappedFormulaName, description: unwrappedFormulaDescription))
+//                }
+//            }
+//            // Vocabulary Controller
+//            guard let vocabNumberOfRows = secondarySubjects[indexPath.row].vocabulary?.vocabulary.count else { return }
+//            vocabularyController.numberOfRows = vocabNumberOfRows
+//
+//            guard let unwrappedVocabulary = secondarySubjects[indexPath.row].vocabulary?.vocabulary else { return }
+//            vocabularyController.vocabulary = unwrappedVocabulary
+//
+//            // Logic Controller
+//            guard let logicNumberOfRows = secondarySubjects[indexPath.row].logic?.logic.count else { return }
+//            logicController.numberOfRows = logicNumberOfRows
+//
+//            guard let unwrappedLogic = secondarySubjects[indexPath.row].logic?.logic else { return }
+//            logicController.logic = unwrappedLogic
+//
+//            // Trick Controller
+//            if !secondarySubjects[indexPath.row].tricks.isEmpty { // If tricks isn't empty
+//                trickController.numberOfRows = secondarySubjects[indexPath.row].tricks.count
+//
+//                for trick in secondarySubjects[indexPath.row].tricks {
+//                    guard let unwrappedTrickName = trick?.trickName else { return }
+//                    trickController.trickName.append(unwrappedTrickName)
+//                    guard let unwrappedActualTrick = trick?.actualTrick else { return }
+//                    trickController.actualTricks.append(unwrappedActualTrick)
+//                }
+//            }
         }
     }
 }

@@ -76,7 +76,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dvN-wk-TOf" kind="show" identifier="toTabBarController" id="RMA-qb-6Xu"/>
+                                    <segue destination="xMJ-Gk-Nwd" kind="show" identifier="toFormulaController" id="Hhh-7i-ej5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SS5-VD-RwW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kD-sB-PZ2">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -158,6 +158,7 @@
                         <outlet property="proofDescriptionLabel" destination="L4F-TB-A9L" id="e3L-do-Zov"/>
                         <outlet property="proofImage" destination="T4n-Ru-Dbw" id="Mfe-NF-yGA"/>
                         <outlet property="proofNameLabel" destination="jHQ-FX-odT" id="W2d-Wa-xou"/>
+                        <outlet property="scrollView" destination="SS5-VD-RwW" id="bsR-XO-iik"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yl-In-QfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,7 +254,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQU-FO-CrT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-dg-eSc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -395,7 +396,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ld-WS-Mif">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3i-RW-L4e">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -472,19 +473,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PxQ-fi-RtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3253.5999999999999" y="-198.35082458770617"/>
+            <point key="canvasLocation" x="2273" y="-600"/>
         </scene>
         <!--Example Problem Detail View Controller-->
         <scene sceneID="u2T-AY-Cn8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yp-6g-Fji" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4Wh-6k-vdA" customClass="ExampleProblemDetailViewController" customModule="All_Things_Math" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0dx-3j-Elt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hN3-vn-RQl">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sma-Bq-1Dk">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -552,9 +552,11 @@
                     <connections>
                         <outlet property="exampleProblemImage" destination="BqO-Z5-cof" id="Q72-v7-9rg"/>
                         <outlet property="exampleProblemNameLabel" destination="u5O-Jf-OhS" id="CrT-mB-7WF"/>
+                        <outlet property="scrollView" destination="hN3-vn-RQl" id="8Rk-Xj-u9z"/>
                         <outlet property="stepsLabel" destination="cAQ-N5-ztq" id="7NZ-U2-cVp"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yp-6g-Fji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4062" y="-876"/>
         </scene>
@@ -633,4 +635,7 @@
             <point key="canvasLocation" x="-66" y="127"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hhh-7i-ej5"/>
+    </inferredMetricsTieBreakers>
 </document>

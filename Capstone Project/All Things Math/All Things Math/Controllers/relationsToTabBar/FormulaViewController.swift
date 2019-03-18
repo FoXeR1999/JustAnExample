@@ -16,6 +16,7 @@ class FormulaViewController: UIViewController {
     var latexFormulaName = MTMathUILabel(frame: .zero)
     var latexActualFormula = MTMathUILabel(frame: .zero)
     var latexVariableExplanation = MTMathUILabel(frame: .zero)
+    var latexDescription = MTMathUILabel(frame: .zero)
     
     var formulaName: String = ""
     var actualFormula: String = ""
@@ -29,9 +30,13 @@ class FormulaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.addSubview(latexDescription)
         scrollView.addSubview(latexFormulaName)
         scrollView.addSubview(latexActualFormula)
         scrollView.addSubview(latexVariableExplanation)
+        latexDescription.isHidden = true
+        latexDescription.textAlignment = .center
+        descriptionLabel.isHidden = false
         latexVariableExplanation.isHidden = true
         latexVariableExplanation.textAlignment = .center
         variableExplanationLabel.isHidden = false
@@ -90,7 +95,22 @@ class FormulaViewController: UIViewController {
             variableExplanationLabel.text = variableExplanation
             variableExplanationLabel.isHidden = false
         }
-        descriptionLabel.text = variableDescription
+        
+        if variableDescription.contains("displaystyle") {
+            latexDescription.isHidden = false
+            descriptionLabel.isHidden = true
+            latexDescription.latex = variableDescription
+            
+            latexDescription.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                NSLayoutConstraint(item: latexDescription, attribute: .top, relatedBy: .equal, toItem: latexVariableExplanation, attribute: .top, multiplier: 1, constant: 32),
+                NSLayoutConstraint(item: latexDescription, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
+                NSLayoutConstraint(item: latexDescription, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+                ])
+        } else {
+            descriptionLabel.text = variableDescription
+            descriptionLabel.isHidden = false
+        }
     }
     
     

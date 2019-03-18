@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import iosMath
 
 class ProofViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var latexProofName = MTMathUILabel(frame: .zero)
+    var latexProofDescription = MTMathUILabel(frame: .zero)
+    
     var proofName: String = ""
     var proofImageName: String = ""
     var proofDescription: String = ""
@@ -20,6 +26,55 @@ class ProofViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.addSubview(latexProofName)
+        scrollView.addSubview(latexProofDescription)
+        latexProofName.isHidden = true
+        latexProofName.textAlignment = .center
+        latexProofDescription.isHidden = true
+        latexProofDescription.textAlignment = .center
+        proofNameLabel.isHidden = false
+        proofDescriptionLabel.isHidden = false
+        
+        if proofName.contains("displaystyle") {
+            latexProofName.isHidden = false
+            proofNameLabel.isHidden = true
+            latexProofName.latex = proofName
+            latexProofName.fontSize = 30
+            
+            latexProofName.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                NSLayoutConstraint(item: latexProofName, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
+                NSLayoutConstraint(item: latexProofName, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+                ])
+        } else {
+            proofNameLabel.text = proofName
+            proofNameLabel.isHidden = false
+        }
+        
+        if proofDescription.contains("displaystyle") {
+            latexProofDescription.isHidden = false
+            proofDescriptionLabel.isHidden = true
+            latexProofDescription.latex = proofDescription
+            latexProofDescription.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                NSLayoutConstraint(item: latexProofDescription, attribute: .top, relatedBy: .equal, toItem: latexProofName, attribute: .top, multiplier: 1, constant: 32),
+                NSLayoutConstraint(item: latexProofDescription, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
+                NSLayoutConstraint(item: latexProofDescription, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+                ])
+        } else if proofDescription.contains("displaystyle") && proofImageName != "" {
+            latexProofDescription.isHidden = false
+            proofDescriptionLabel.isHidden = true
+            latexProofDescription.latex = proofDescription
+            latexProofDescription.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                NSLayoutConstraint(item: latexProofDescription, attribute: .top, relatedBy: .equal, toItem: proofImage, attribute: .top, multiplier: 1, constant: 32),
+                NSLayoutConstraint(item: latexProofDescription, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
+                NSLayoutConstraint(item: latexProofDescription, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+                ])
+        } else {
+            proofDescriptionLabel.text = proofDescription
+            proofDescriptionLabel.isHidden = false
+        }
         
         if proofImageName != "" {
             proofImage.image = UIImage(named: proofImageName)
