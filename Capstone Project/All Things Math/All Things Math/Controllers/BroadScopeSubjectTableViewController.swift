@@ -8,18 +8,16 @@
 
 import UIKit
 
-class BroadScopeSubjectTableViewController: UITableViewController, UISearchBarDelegate {
+class BroadScopeSubjectTableViewController: UITableViewController {
     
-    @IBOutlet weak var broadScopeSearchBar: UISearchBar!
-    var searchActive: Bool = false
     var searchTerms: [String] = []
-    var filtered: [String] = []
     
     var subjectsStruct = Subjects()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        broadScopeSearchBar.delegate = self
+        self.view.backgroundColor = UIColor(red: 0.4784, green: 0.4784, blue: 0.4784, alpha: 1.0) /* #7a7a7a */
+        
         
         subjectsStruct.setUpSubjects { (algebraArray, arithmeticArray, calculusArray, geometryArray, trigonometryArray, statsArray) in
             self.subjectsStruct.subjects["Algebra"] = algebraArray
@@ -55,17 +53,17 @@ class BroadScopeSubjectTableViewController: UITableViewController, UISearchBarDe
         for subject in statsSecondarySubjects {
             searchTerms.append(subject.name)
         }
+        subjectsStruct.subjects.removeValue(forKey: "Algebra")
+        subjectsStruct.subjects.removeValue(forKey: "Arithmetic")
+        subjectsStruct.subjects.removeValue(forKey: "Geometry")
+        subjectsStruct.subjects.removeValue(forKey: "Trigonometry")
+        subjectsStruct.subjects.removeValue(forKey: "Statistics and Probability")
     }
     
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if(searchActive) {
-            return filtered.count
-        }
-        
         return subjectsStruct.subjects.keys.count
     }
     
@@ -73,45 +71,14 @@ class BroadScopeSubjectTableViewController: UITableViewController, UISearchBarDe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell", for: indexPath)
         
-        if(searchActive){
-            cell.textLabel?.text = filtered[indexPath.row]
-        } else {
-            let sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted() // Alphabatized subjects
-            
-            cell.textLabel?.text = sortedSubjectDictionary[indexPath.row]
-        }
-        return cell
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        cell.backgroundColor = UIColor(red: 0.4784, green: 0.4784, blue: 0.4784, alpha: 1.0) /* #7a7a7a */
+        cell.textLabel?.textColor = UIColor(red: 0.4588, green: 1, blue: 0.4588, alpha: 1.0) /* #75ff75 */
         
-        filtered = searchTerms.filter({ (text) -> Bool in
-            let tmp: NSString = text as NSString
-            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-            return range.location != NSNotFound
-        })
-        if(filtered.count == 0) {
-            searchActive = false
-        } else {
-            searchActive = true
-        }
-        self.tableView.reloadData()
+        var sortedSubjectDictionary = (subjectsStruct.subjects.keys).sorted() // Alphabatized subjects
+        
+        cell.textLabel?.text = sortedSubjectDictionary[indexPath.row]
+        
+        return cell
     }
     
     // MARK: - Navigation

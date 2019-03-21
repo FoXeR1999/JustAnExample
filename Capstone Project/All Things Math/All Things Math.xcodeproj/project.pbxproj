@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3813A11C22432E7C005AC568 /* NarrowScopeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813A11B22432E7C005AC568 /* NarrowScopeTableViewCell.swift */; };
 		38306A30220C7BBE0067C983 /* SecondarySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A2F220C7BBE0067C983 /* SecondarySubject.swift */; };
 		38306A32220C83130067C983 /* Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A31220C83130067C983 /* Formula.swift */; };
 		38306A34220C83C90067C983 /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38306A33220C83C90067C983 /* Proof.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		0FE6AB1DB1568D258FB5CAD4 /* Pods-All Things Math.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All Things Math.debug.xcconfig"; path = "Target Support Files/Pods-All Things Math/Pods-All Things Math.debug.xcconfig"; sourceTree = "<group>"; };
+		3813A11B22432E7C005AC568 /* NarrowScopeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarrowScopeTableViewCell.swift; sourceTree = "<group>"; };
 		38306A2F220C7BBE0067C983 /* SecondarySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondarySubject.swift; sourceTree = "<group>"; };
 		38306A31220C83130067C983 /* Formula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formula.swift; sourceTree = "<group>"; };
 		38306A33220C83C90067C983 /* Proof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				38D55DFF22088CBD007C85E2 /* BroadScopeSubjectTableViewController.swift */,
 				38D55E0122088D06007C85E2 /* NarrowScopeSubjectTableViewController.swift */,
+				3813A11B22432E7C005AC568 /* NarrowScopeTableViewCell.swift */,
 				383A26212232BE2E0064A9A3 /* MainTabBarViewController.swift */,
 				383A261E2232BD960064A9A3 /* relationsToTabBar */,
 				38DF2EE2221F09DA00B4F563 /* SecondarySubjectController.swift */,
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38306A36220C84070067C983 /* ExampleProblem.swift in Sources */,
+				3813A11C22432E7C005AC568 /* NarrowScopeTableViewCell.swift in Sources */,
 				38D55E0C22089FB0007C85E2 /* Subject.swift in Sources */,
 				38E15A5C222D87690067B7BF /* LogicTableViewController.swift in Sources */,
 				38518BB72236B801009B655E /* LogicCellTableViewCell.swift in Sources */,

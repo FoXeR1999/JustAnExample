@@ -18,14 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="a2h-hO-ONy">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubjectCell" textLabel="kRC-Nl-cFD" style="IBUITableViewCellStyleDefault" id="av6-Xi-VqM">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="av6-Xi-VqM" id="uk5-aQ-yEi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -51,9 +46,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Hu7-oJ-ept"/>
-                    <connections>
-                        <outlet property="broadScopeSearchBar" destination="a2h-hO-ONy" id="Jq4-r5-vLl"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dON-Q7-HqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,11 +60,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondarySubjectCell" id="myD-cH-uA4">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondarySubjectCell" rowHeight="100" id="myD-cH-uA4" customClass="NarrowScopeTableViewCell" customModule="All_Things_Math" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="myD-cH-uA4" id="R4n-dc-Zi5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -88,7 +80,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wu-Id-RhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1458" y="127"/>
+            <point key="canvasLocation" x="1456.8" y="126.38680659670166"/>
         </scene>
         <!--Proof-->
         <scene sceneID="1Sy-j8-udn">
@@ -469,6 +461,7 @@
                         <outlet property="formulaNameLabel" destination="wsq-ad-xyt" id="amn-tx-a2s"/>
                         <outlet property="scrollView" destination="0ld-WS-Mif" id="2uz-fq-RvZ"/>
                         <outlet property="variableExplanationLabel" destination="TUx-pG-LcZ" id="yEv-er-TaJ"/>
+                        <outlet property="viewInScrollView" destination="S3i-RW-L4e" id="Bja-9m-Z8C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PxQ-fi-RtL" userLabel="First Responder" sceneMemberID="firstResponder"/>

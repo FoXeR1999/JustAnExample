@@ -12,6 +12,7 @@ import iosMath
 class FormulaViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var viewInScrollView: UIView!
     
     var latexFormulaName = MTMathUILabel(frame: .zero)
     var latexActualFormula = MTMathUILabel(frame: .zero)
@@ -30,34 +31,47 @@ class FormulaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.addSubview(latexDescription)
+        self.view.backgroundColor = UIColor(red: 0.4784, green: 0.4784, blue: 0.4784, alpha: 1.0) /* #7a7a7a */
+        scrollView.backgroundColor = UIColor(red: 0.4784, green: 0.4784, blue: 0.4784, alpha: 1.0)
+        viewInScrollView.backgroundColor = UIColor(red: 0.4784, green: 0.4784, blue: 0.4784, alpha: 1.0)
+        
+        variableExplanationLabel.isHidden = true
+        descriptionLabel.isHidden = true
+        latexVariableExplanation.isHidden = true
+        latexDescription.isHidden = true
+        actualFormulaLabel.isHidden = true
+        formulaNameLabel.isHidden = true
+        
+   
         scrollView.addSubview(latexFormulaName)
         scrollView.addSubview(latexActualFormula)
-        scrollView.addSubview(latexVariableExplanation)
-        latexDescription.isHidden = true
-        latexDescription.textAlignment = .center
-        descriptionLabel.isHidden = false
-        latexVariableExplanation.isHidden = true
-        latexVariableExplanation.textAlignment = .center
-        variableExplanationLabel.isHidden = false
-        latexActualFormula.isHidden = true
-        latexActualFormula.textAlignment = .center
-        actualFormulaLabel.isHidden = false
-        latexFormulaName.isHidden = true
+//        scrollView.addSubview(latexDescription)
+//        scrollView.addSubview(latexVariableExplanation)
+//        latexDescription.isHidden = true
+//        latexDescription.textAlignment = .center
+//        descriptionLabel.isHidden = false
+//        latexVariableExplanation.isHidden = true
+//        latexVariableExplanation.textAlignment = .center
+//        variableExplanationLabel.isHidden = false
+        latexActualFormula.isHidden = false
+        latexActualFormula.textAlignment = .left
+//        actualFormulaLabel.isHidden = false
+        latexFormulaName.isHidden = false
         latexFormulaName.textAlignment = .center
-        formulaNameLabel.isHidden = false
+//        formulaNameLabel.isHidden = false
         
         if formulaName.contains("displaystyle") {
-            latexFormulaName.isHidden = false
-            formulaNameLabel.isHidden = true
+//            latexFormulaName.isHidden = false
+//            formulaNameLabel.isHidden = true
             latexFormulaName.latex = formulaName
-            latexFormulaName.fontSize = 30
+            latexFormulaName.fontSize = 24
+            latexFormulaName.textColor = UIColor(red: 0.4588, green: 1, blue: 0.4588, alpha: 1.0) /* #75ff75 */
             
             latexFormulaName.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 // NSLayoutConstraint(item: latexFormulaName, attribute: .top, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 16),
-                NSLayoutConstraint(item: latexFormulaName, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
-                NSLayoutConstraint(item: latexFormulaName, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+                NSLayoutConstraint(item: latexFormulaName, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 4),
+                NSLayoutConstraint(item: latexFormulaName, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 4)
                 ])
         } else {
             formulaNameLabel.text = formulaName
@@ -65,52 +79,55 @@ class FormulaViewController: UIViewController {
         }
         
         if actualFormula.contains("displaystyle") {
-            latexActualFormula.isHidden = false
-            actualFormulaLabel.isHidden = true
+//            latexActualFormula.isHidden = false
+//            actualFormulaLabel.isHidden = true
             latexActualFormula.latex = actualFormula
+            latexActualFormula.fontSize = 17
+            latexActualFormula.textColor = UIColor(red: 0.4588, green: 1, blue: 0.4588, alpha: 1.0) /* #75ff75 */
             
             latexActualFormula.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                NSLayoutConstraint(item: latexActualFormula, attribute: .top, relatedBy: .equal, toItem: latexFormulaName, attribute: .top, multiplier: 1, constant: 32),
-                NSLayoutConstraint(item: latexActualFormula, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
-                NSLayoutConstraint(item: latexActualFormula, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+                NSLayoutConstraint(item: latexActualFormula, attribute: .top, relatedBy: .equal, toItem: latexFormulaName, attribute: .top, multiplier: 1, constant: 64),
+                NSLayoutConstraint(item: latexActualFormula, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 4),
+                NSLayoutConstraint(item: latexActualFormula, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 4)
                 ])
-        } else {
-            actualFormulaLabel.text = actualFormula
-            formulaNameLabel.isHidden = false
         }
+//        else {
+//            actualFormulaLabel.text = actualFormula
+//            formulaNameLabel.isHidden = false
+//        }
         
-        if variableExplanation.contains("displaystyle") {
-            latexVariableExplanation.isHidden = false
-            variableExplanationLabel.isHidden = true
-            latexVariableExplanation.latex = variableExplanation
-            
-            latexVariableExplanation.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                NSLayoutConstraint(item: latexVariableExplanation, attribute: .top, relatedBy: .equal, toItem: latexActualFormula, attribute: .top, multiplier: 1, constant: 32),
-                NSLayoutConstraint(item: latexVariableExplanation, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
-                NSLayoutConstraint(item: latexVariableExplanation, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
-                ])
-        } else {
-            variableExplanationLabel.text = variableExplanation
-            variableExplanationLabel.isHidden = false
-        }
-        
-        if variableDescription.contains("displaystyle") {
-            latexDescription.isHidden = false
-            descriptionLabel.isHidden = true
-            latexDescription.latex = variableDescription
-            
-            latexDescription.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                NSLayoutConstraint(item: latexDescription, attribute: .top, relatedBy: .equal, toItem: latexVariableExplanation, attribute: .top, multiplier: 1, constant: 32),
-                NSLayoutConstraint(item: latexDescription, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
-                NSLayoutConstraint(item: latexDescription, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
-                ])
-        } else {
-            descriptionLabel.text = variableDescription
-            descriptionLabel.isHidden = false
-        }
+//        if variableExplanation.contains("displaystyle") {
+//            latexVariableExplanation.isHidden = false
+//            variableExplanationLabel.isHidden = true
+//            latexVariableExplanation.latex = variableExplanation
+//
+//            latexVariableExplanation.translatesAutoresizingMaskIntoConstraints = false
+//            NSLayoutConstraint.activate([
+//                NSLayoutConstraint(item: latexVariableExplanation, attribute: .top, relatedBy: .equal, toItem: latexActualFormula, attribute: .top, multiplier: 1, constant: 32),
+//                NSLayoutConstraint(item: latexVariableExplanation, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
+//                NSLayoutConstraint(item: latexVariableExplanation, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+//                ])
+//        } else {
+//            variableExplanationLabel.text = variableExplanation
+//            variableExplanationLabel.isHidden = false
+//        }
+//
+//        if variableDescription.contains("displaystyle") {
+//            latexDescription.isHidden = false
+//            descriptionLabel.isHidden = true
+//            latexDescription.latex = variableDescription
+//
+//            latexDescription.translatesAutoresizingMaskIntoConstraints = false
+//            NSLayoutConstraint.activate([
+//                NSLayoutConstraint(item: latexDescription, attribute: .top, relatedBy: .equal, toItem: latexVariableExplanation, attribute: .top, multiplier: 1, constant: 32),
+//                NSLayoutConstraint(item: latexDescription, attribute: .left, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 8),
+//                NSLayoutConstraint(item: latexDescription, attribute: .right, relatedBy: .equal, toItem: scrollView.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 8)
+//                ])
+//        } else {
+//            descriptionLabel.text = variableDescription
+//            descriptionLabel.isHidden = false
+//        }
     }
     
     
