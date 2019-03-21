@@ -82,7 +82,7 @@ class FormulaViewController: UIViewController {
 //            latexActualFormula.isHidden = false
 //            actualFormulaLabel.isHidden = true
             latexActualFormula.latex = actualFormula
-            latexActualFormula.fontSize = 17
+            latexActualFormula.fontSize = 20
             latexActualFormula.textColor = UIColor(red: 0.4588, green: 1, blue: 0.4588, alpha: 1.0) /* #75ff75 */
             
             latexActualFormula.translatesAutoresizingMaskIntoConstraints = false
