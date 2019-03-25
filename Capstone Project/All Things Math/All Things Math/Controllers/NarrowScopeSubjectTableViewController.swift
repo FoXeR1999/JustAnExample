@@ -11,13 +11,12 @@ import iosMath
 
 class NarrowScopeSubjectTableViewController: UITableViewController {
     
-    var latexCell = MTMathUILabel(frame: .zero)
-    
     var secondarySubjects: [SecondarySubject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 0.4784, green: 0.4784, blue: 0.4784, alpha: 1.0) /* #7a7a7a */
+        self.tableView.rowHeight = 55
 
     }    
     
@@ -29,16 +28,11 @@ class NarrowScopeSubjectTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SecondarySubjectCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SecondarySubjectCell", for: indexPath) as! NarrowScopeTableViewCell
         
         cell.backgroundColor = UIColor(red: 0.4784, green: 0.4784, blue: 0.4784, alpha: 1.0) /* #7a7a7a */
-//        cell.textLabel?.textColor = UIColor(red: 0.4588, green: 1, blue: 0.4588, alpha: 1.0) /* #75ff75 */
-        
-        cell.contentView.addSubview(latexCell)
-        latexCell.latex = secondarySubjects[indexPath.row].name
-        latexCell.textColor = UIColor(red: 0.4588, green: 1, blue: 0.4588, alpha: 1.0) /* #75ff75 */
-        
-//        cell.textLabel?.text = secondarySubjects[indexPath.row].name  // find out which cell was tapped and pull the array of subjects from the struct
+        cell.textLabel?.textColor = UIColor(red: 0.4588, green: 1, blue: 0.4588, alpha: 1.0) /* #75ff75 */
+        cell.latexCell.latex = secondarySubjects[indexPath.row].name
         
         return cell
     }

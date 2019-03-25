@@ -58,6 +58,7 @@ class BroadScopeSubjectTableViewController: UITableViewController {
         subjectsStruct.subjects.removeValue(forKey: "Geometry")
         subjectsStruct.subjects.removeValue(forKey: "Trigonometry")
         subjectsStruct.subjects.removeValue(forKey: "Statistics and Probability")
+        
     }
     
     
